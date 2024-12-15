@@ -1,0 +1,87 @@
+.Container {
+    margin-top: 15px;
+}
+
+
+
+.SignInContainer h4 {
+    font-size: 33px;
+    margin-top: 20px;
+}
+
+.SignInContainer p {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.SignInContainer {
+    padding: 25px;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.Input {
+    width: 25vw;
+    margin-top: 5px;
+    height: 40px;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.Label {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.Error {
+    color: red;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.rememberContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+
+}
+
+.rememberContainer a {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.remember {
+    display: flex;
+    font-size: 16px;
+
+}
+
+.buttonSignIn{
+    background-color: #095179;
+    color: white;
+    width: 10vw;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+.formSetting{
+    display: flex;
+}
+
+.field{
+    margin: 5px;
+}
+.backArrow{
+    margin-left: 13px;
+    cursor: pointer;
+    color: #095179;
+}

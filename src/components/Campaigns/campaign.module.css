@@ -1,0 +1,52 @@
+.container{
+    border-radius: 4px;
+    padding: 10px;
+
+}
+.cardTitle{
+    display: flex;
+    align-items: center;
+}
+.btn{
+    background-color: #f0f2f5;
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
+    font-size: 12px;
+    justify-content: space-between;
+}
+.Text{
+    margin: 5px 0px;
+
+    font-size: 12px;
+}
+.lastM{
+    font-size: 10px;
+    background-color: #f0f2f5;
+}
+.numTitle{
+    background-color: #d8ffed;
+    padding: 2px;
+    font-size: 12px;
+}
+.boxes{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 100px;
+}
+.chart{
+    width: 100%;
+}
+.Legend{
+    display: flex;
+    align-items: center;
+}
+.Legend2{
+    margin-left: 5px;
+}
+.content{
+    display: flex;
+    padding: 7px 0px;
+    margin: 0px ;
+}

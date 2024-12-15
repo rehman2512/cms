@@ -1,0 +1,25 @@
+.container{
+    margin-top: 15px;
+    height: 86vh;
+    overflow-y: scroll  ;
+}
+.filterBtn{
+    background-color: #ffffff;
+    color: black;
+    margin:0px 5px ;
+}
+
+.filterBtn:hover{ 
+    background-color: #095179 !important; 
+
+}
+.tabs{
+    color: #095179;
+}
+.filterBtn2{
+ background-color: #095179 !important;
+}
+.filterBtn2:hover{
+    background-color: #ffffff !important;
+    color: black !important;
+   }

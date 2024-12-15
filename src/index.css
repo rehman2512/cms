@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +7,47 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5 !important;
 }
 
+body{
+  background-color: #f0f2f5 !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1, h2, h3, h4, h5, h6, span, strong, input , select,span,li,button,Table{
+  font-family: Public Sans, sans-serif;
+}
+h1, h2, h3, h4, h5, h6{
+  color: black;
+}
+p,label{
+}
+
+
+::-webkit-scrollbar {
+  width: 3px; 
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff; 
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  /* background: linear-gradient(180deg, rgba(0, 74, 173, 0.9) 0%, rgba(203, 108, 230, 0.9) 100%); */
+
+  border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color on hover */
+}
+
+
+

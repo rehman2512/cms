@@ -1,0 +1,104 @@
+.imageContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    background-image: url('../../Images/background.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.SignInImage{
+    height: 300px;
+    margin-top: 50px;
+    
+}
+.SignInContainer h4{
+    font-size: 33px;
+    margin-top: 20px;
+}
+.SignInContainer p{
+    font-size: 16px;
+    margin-top: 20px;
+}
+.SignInContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.Input{
+    width: 25vw;
+    margin-top: 5px;
+    height: 40px;
+    border-radius: 6px;
+    padding: 15px;
+    border: 1px solid #D3D3D3;
+}
+
+.Label{
+    font-size: 16px;
+    font-weight: 400;
+}
+.Error{
+    color: red;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.rememberContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+
+}
+
+.rememberContainer  a{
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    text-decoration: none;
+}
+.remember{
+  display: flex;
+  color: #8A92A6;
+  font-size: 16px;
+
+}
+.btn{
+    display: flex;
+    justify-content: center;
+}
+.buttonSignIn{
+    background: #095179;
+    color: white;
+    width: 10vw;
+    height: 44px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25px;
+}
+.righsidebottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.righsidebottom h4, p{
+    text-align: center;
+    font-weight: 600;
+    padding: 0px 50px;
+    color: #095179;
+}
+.ring{
+    margin-bottom: 15px;
+}
