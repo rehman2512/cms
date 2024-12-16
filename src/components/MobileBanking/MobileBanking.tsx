@@ -22,15 +22,13 @@ interface DataSource {
     Date: string;
     Time: string;
     Amount: string;
-    Name: string;
-    ImageSrc: string;
 }
 
 const MultiViewTable: React.FC = ({ }) => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [pageSize, setPageSize] = useState<number>(9);
     const [searchText, setSearchText] = useState<string>('');
-    const [selectedColumns, setSelectedColumns] = useState<string[]>(['ReferenceID', 'Type', 'From', 'To', 'Status', 'Date', 'Time', 'Amount', 'Name']);
+    const [selectedColumns, setSelectedColumns] = useState<string[]>(['ReferenceID', 'Type', 'From', 'To', 'Status', 'Date', 'Time', 'Amount',]);
     const [loadingText, setLoadingText] = useState<boolean>(true)
     const [buttonLoading, setButtonLoading] = useState<boolean>(false);
     const [open, setOpen] = useState(false);
@@ -48,21 +46,23 @@ const MultiViewTable: React.FC = ({ }) => {
     };
 
     const dataSource: DataSource[] = [
-        { key: '1', ReferenceID: 'EXG4545FR01', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
-        { key: '2', ReferenceID: 'EXG4545FR02', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
-        { key: '3', ReferenceID: 'EXG4545FR01', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "In Active", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
-        { key: '4', ReferenceID: 'EXG4545FR02', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
-        { key: '5', ReferenceID: 'EXG4545FR01', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Pending", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
-        { key: '6', ReferenceID: 'EXG4545FR02', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
-        { key: '7', ReferenceID: 'EXG4545FR01', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
-        { key: '8', ReferenceID: 'EXG4545FR02', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "In Active", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
-        { key: '9', ReferenceID: 'EXG4545FR01', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
-        { key: '10', ReferenceID: 'EXG4545FR02', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
-        { key: '11', ReferenceID: 'EXG4545FR01', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
-        { key: '12', ReferenceID: 'EXG4545FR02', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
-        { key: '13', ReferenceID: 'EXG4545FR01', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
-        { key: '14', ReferenceID: 'EXG4545FR02', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "5", Time: "500", Amount: "Repeat", Name: "ATM", ImageSrc: Image },
+        { key: '1', ReferenceID: 'EXG4545FR01', Type: 'Email Campaign', From: "1234****5678", To: "1234****5678", Status: "Active", Date: "18/08/2024", Time: "10:00 AM", Amount: "OMR500",  },
+        { key: '2', ReferenceID: 'EXG4545FR02', Type: 'Social Media Campaign', From: "5678****1234", To: "5678****1234", Status: "Pending", Date: "19/08/2024", Time: "11:30 AM", Amount: "OMR750",  },
+        { key: '3', ReferenceID: 'EXG4545FR03', Type: 'SMS Campaign', From: "4321****8765", To: "4321****8765", Status: "In Active", Date: "20/08/2024", Time: "2:45 PM", Amount: "OMR300",  },
+        { key: '4', ReferenceID: 'EXG4545FR04', Type: 'Push Notification', From: "8765****4321", To: "8765****4321", Status: "Active", Date: "21/08/2024", Time: "9:15 AM", Amount: "OMR1,200",  },
+        { key: '5', ReferenceID: 'EXG4545FR05', Type: 'Influencer Campaign', From: "2345****6789", To: "2345****6789", Status: "Pending", Date: "22/08/2024", Time: "3:30 PM", Amount: "OMR900",  },
+        { key: '6', ReferenceID: 'EXG4545FR06', Type: 'PPC Campaign', From: "6789****2345", To: "6789****2345", Status: "Active", Date: "23/08/2024", Time: "1:00 PM", Amount: "OMR1,500",  },
+        { key: '7', ReferenceID: 'EXG4545FR07', Type: 'SEO Campaign', From: "1234****5678", To: "1234****5678", Status: "Active", Date: "24/08/2024", Time: "4:45 PM", Amount: "OMR600",  },
+        { key: '8', ReferenceID: 'EXG4545FR08', Type: 'Affiliate Campaign', From: "5678****1234", To: "5678****1234", Status: "In Active", Date: "25/08/2024", Time: "10:30 AM", Amount: "OMR800",  },
+        { key: '9', ReferenceID: 'EXG4545FR09', Type: 'Content Marketing', From: "4321****8765", To: "4321****8765", Status: "Active", Date: "26/08/2024", Time: "12:00 PM", Amount: "OMR450",  },
+        { key: '10', ReferenceID: 'EXG4545FR10', Type: 'Video Marketing', From: "8765****4321", To: "8765****4321", Status: "Active", Date: "27/08/2024", Time: "2:15 PM", Amount: "OMR2,000",  },
+        { key: '11', ReferenceID: 'EXG4545FR11', Type: 'Webinar Campaign', From: "2345****6789", To: "2345****6789", Status: "Pending", Date: "28/08/2024", Time: "11:00 AM", Amount: "OMR1,000",  },
+        { key: '12', ReferenceID: 'EXG4545FR12', Type: 'Product Launch', From: "6789****2345", To: "6789****2345", Status: "Active", Date: "29/08/2024", Time: "3:45 PM", Amount: "OMR2,500",  },
+        { key: '13', ReferenceID: 'EXG4545FR13', Type: 'Event Marketing', From: "1234****5678", To: "1234****5678", Status: "In Active", Date: "30/08/2024", Time: "5:15 PM", Amount: "OMR1,800",  },
+        { key: '14', ReferenceID: 'EXG4545FR14', Type: 'Lead Generation', From: "5678****1234", To: "5678****1234", Status: "Active", Date: "31/08/2024", Time: "10:45 AM", Amount: "OMR700",  },
     ];
+    
+    
 
     const Addhandle = () => {
         setShowForm(true);
@@ -96,7 +96,7 @@ const MultiViewTable: React.FC = ({ }) => {
             title: 'Type',
             dataIndex: 'Type',
             key: 'Type',
-            width: 120,
+            width: 150,
             sorter: (a: DataSource, b: DataSource) => a.Type.localeCompare(b.Type),
         },
         {
@@ -135,23 +135,7 @@ const MultiViewTable: React.FC = ({ }) => {
             width: 100,
             sorter: (a: DataSource, b: DataSource) => a.Amount.localeCompare(b.Amount),
         },
-        {
-            title: 'Name',
-            dataIndex: 'Name',
-            key: 'Name',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.Name.localeCompare(b.Name),
-            render: (text: string, record: DataSource) => (
-                <Space>
-                    <img
-                        src={record.ImageSrc}
-                        alt={''}
-                        style={{ width: 30, height: 30, borderRadius: '50%' }}
-                    />
-                    <span>{text}</span>
-                </Space>
-            ),
-        },
+        
         {
             title: 'Status',
             dataIndex: 'Status',
@@ -195,8 +179,7 @@ const MultiViewTable: React.FC = ({ }) => {
         item.Status.toLowerCase().includes(searchText) ||
         item.Date.toLowerCase().includes(searchText) ||
         item.Time.toLowerCase().includes(searchText) ||
-        item.Amount.toLowerCase().includes(searchText) ||
-        item.Name.toLowerCase().includes(searchText)
+        item.Amount.toLowerCase().includes(searchText) 
     );
 
     const items = [
@@ -296,18 +279,7 @@ const MultiViewTable: React.FC = ({ }) => {
             ),
             key: '8',
         },
-        {
-            label: (
-                <Checkbox
-                    checked={selectedColumns.includes('Name')}
-                    value={'Name'}
-                    onChange={(e) => handleCheckboxChange(e.target.checked, 'Name')}
-                >
-                    Name
-                </Checkbox>
-            ),
-            key: '9',
-        }
+     
     ];
 
 
@@ -419,7 +391,7 @@ const MultiViewTable: React.FC = ({ }) => {
                         />
                         <Pagination
                             align="end"
-                            showTotal={(total) => `Total ${total} items`}
+                            showTotal={(total) => `Total OMR{total} items`}
                             current={currentPage}
                             total={filteredData.length}
                             pageSize={pageSize}

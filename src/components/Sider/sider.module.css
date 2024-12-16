@@ -129,3 +129,22 @@
 .sideListMenu {
     background-color: transparent !important;
 }
+
+.custommenu .ant-menu-light .ant-menu-item-selected {
+    background-color: #095179 !important; /* Your active background color */
+    color: #ffffff !important;           /* Your active text color */
+    border-radius: 4px;                  /* Optional: Add a rounded effect */
+}
+
+.custommenu .ant-menu-item-selected {
+    background-color: #095179 !important; /* Active item ka background color */
+    color: #ffffff !important;           /* Active item ka text color */
+}
+
+.custommenu .ant-menu-item-selected:hover {
+    background-color: #004a70 !important; /* Hover effect for selected item */
+}
+
+.custommenu .ant-menu-item {
+    transition: background-color 0.3s ease; /* Smooth transition */
+}

@@ -24,13 +24,14 @@ interface DataSource {
     Amount: string;
     CardHolderName: string;
     ImageSrc: string;
+    From: string;
 }
 
 const MultiViewTable: React.FC = ({ }) => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [pageSize, setPageSize] = useState<number>(9);
     const [searchText, setSearchText] = useState<string>('');
-    const [selectedColumns, setSelectedColumns] = useState<string[]>(['CreditCardID', 'CardType', 'TransactionID', 'To', 'Status', 'Date', 'Time', 'Amount', 'CardHolderName']);
+    const [selectedColumns, setSelectedColumns] = useState<string[]>(['CreditCardID', 'CardType', 'TransactionID', 'To', 'Status', 'Date', 'Time', 'Amount', 'CardHolderName', 'From']);
     const [loadingText, setLoadingText] = useState<boolean>(true)
     const [buttonLoading, setButtonLoading] = useState<boolean>(false);
     const [open, setOpen] = useState(false);
@@ -48,21 +49,22 @@ const MultiViewTable: React.FC = ({ }) => {
     };
 
     const dataSource: DataSource[] = [
-        { key: '1', CreditCardID: 'EXG4545FR01', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '2', CreditCardID: 'EXG4545FR02', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '3', CreditCardID: 'EXG4545FR01', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Pending", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '4', CreditCardID: 'EXG4545FR02', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '5', CreditCardID: 'EXG4545FR01', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Pending", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '6', CreditCardID: 'EXG4545FR02', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '7', CreditCardID: 'EXG4545FR01', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '8', CreditCardID: 'EXG4545FR02', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Pending", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '9', CreditCardID: 'EXG4545FR01', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '10', CreditCardID: 'EXG4545FR02', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '11', CreditCardID: 'EXG4545FR01', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '12', CreditCardID: 'EXG4545FR02', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '13', CreditCardID: 'EXG4545FR01', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '14', CreditCardID: 'EXG4545FR02', CardType: 'Master', TransactionID: "31452145", To: "5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '1', CreditCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '2', CreditCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '3', CreditCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Pending", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '4', CreditCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '5', CreditCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Pending", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '6', CreditCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '7', CreditCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '8', CreditCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Pending", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '9', CreditCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '10', CreditCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '11', CreditCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '12', CreditCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '13', CreditCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '14', CreditCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***10/5/2021", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
     ];
+    
 
     const Addhandle = () => {
         setShowForm(true);
@@ -105,6 +107,13 @@ const MultiViewTable: React.FC = ({ }) => {
             key: 'TransactionID',
             width: 150,
             sorter: (a: DataSource, b: DataSource) => a.TransactionID.localeCompare(b.TransactionID),
+        },
+        {
+            title: 'From',
+            dataIndex: 'From',
+            key: 'From',
+            width: 80,
+            sorter: (a: DataSource, b: DataSource) => a.From.localeCompare(b.From),
         },
         {
             title: 'To',
@@ -239,6 +248,18 @@ const MultiViewTable: React.FC = ({ }) => {
         {
             label: (
                 <Checkbox
+                    checked={selectedColumns.includes('From')}
+                    value={'From'}
+                    onChange={(e) => handleCheckboxChange(e.target.checked, 'From')}
+                >
+                    From
+                </Checkbox>
+            ),
+            key: '4',
+        },
+        {
+            label: (
+                <Checkbox
                     checked={selectedColumns.includes('To')}
                     value={'To'}
                     onChange={(e) => handleCheckboxChange(e.target.checked, 'To')}
@@ -246,7 +267,7 @@ const MultiViewTable: React.FC = ({ }) => {
                     To
                 </Checkbox>
             ),
-            key: '4',
+            key: '5',
         },
         {
             label: (
@@ -258,7 +279,7 @@ const MultiViewTable: React.FC = ({ }) => {
                     Status
                 </Checkbox>
             ),
-            key: '5',
+            key: '6',
         },
         {
             label: (
@@ -270,7 +291,7 @@ const MultiViewTable: React.FC = ({ }) => {
                     Date
                 </Checkbox>
             ),
-            key: '6',
+            key: '7',
         },
         {
             label: (
@@ -282,7 +303,7 @@ const MultiViewTable: React.FC = ({ }) => {
                     Time
                 </Checkbox>
             ),
-            key: '7',
+            key: '8',
         },
         {
             label: (
@@ -294,7 +315,7 @@ const MultiViewTable: React.FC = ({ }) => {
                     Amount
                 </Checkbox>
             ),
-            key: '8',
+            key: '9',
         },
         {
             label: (
@@ -306,7 +327,7 @@ const MultiViewTable: React.FC = ({ }) => {
                     Card Holder Name
                 </Checkbox>
             ),
-            key: '9',
+            key: '10',
         }
     ];
 

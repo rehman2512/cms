@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import style from './UserManage.module.css';
+import style from './Group.module.css';
 import { Table, Input, Pagination, Space, Dropdown, Checkbox, Tag } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 import { CiMenuKebab, CiFilter, CiSearch } from 'react-icons/ci';
@@ -11,19 +11,16 @@ import Features from '../../Forms/UserForm.'
 
 interface DataSource {
     key: string;
-    UserName: string;
-    Role: string;
-    EmailAddress: string;
-    PhoneNumber: string;
-    StartDate: string;
-    EndDate: string;
+    GroupName: string;
+    Description: string;
+
 }
 
 const MultiViewTable: React.FC = ({ }) => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [pageSize, setPageSize] = useState<number>(9);
     const [searchText, setSearchText] = useState<string>('');
-    const [selectedColumns, setSelectedColumns] = useState<string[]>(['UserName', 'Role', 'EmailAddress', 'PhoneNumber', 'StartDate', 'EndDate']);
+    const [selectedColumns, setSelectedColumns] = useState<string[]>(['GroupName', 'Description']);
     const [loadingText, setLoadingText] = useState<boolean>(true)
     const [buttonLoading, setButtonLoading] = useState<boolean>(false);
     const [open, setOpen] = useState(false);
@@ -41,20 +38,20 @@ const MultiViewTable: React.FC = ({ }) => {
     };
 
     const dataSource: DataSource[] = [
-        { key: '1', UserName: 'Khaili', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022"  },
-        { key: '2', UserName: 'Basheer', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022" },
-        { key: '3', UserName: 'Raheem', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022" },
-        { key: '4', UserName: 'Bakar', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022" },
-        { key: '5', UserName: 'Fahad', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022" },
-        { key: '6', UserName: 'Qaboos', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022" },
-        { key: '7', UserName: 'Qaboos', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022" },
-        { key: '8', UserName: 'Qaboos', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022" },
-        { key: '9', UserName: ' Haitham bin Tariq', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022",  },
-        { key: '10', UserName: ' Haitham bin Tariq', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022", },
-        { key: '11', UserName: ' Haitham bin Tariq', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022", },
-        { key: '12', UserName: 'EXG4545FR02', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022",  },
-        { key: '13', UserName: 'EXG4545FR01', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022", },
-        { key: '14', UserName: 'EXG4545FR02', Role: 'Viewer', EmailAddress: "Test@gmail.com", PhoneNumber: "+968 123-4567", StartDate: "10/7/2018", EndDate: "10/7/2022", },
+        { key: '1', GroupName: 'Khaili',Description:"" },
+        { key: '2', GroupName: 'Basheer',Description:"" },
+        { key: '3', GroupName: 'Raheem', Description:""},
+        { key: '4', GroupName: 'Bakar', Description:""},
+        { key: '5', GroupName: 'Fahad', Description:""},
+        { key: '6', GroupName: 'Qaboos' ,Description:""},
+        { key: '7', GroupName: 'Qaboos', Description:""},
+        { key: '8', GroupName: 'Qaboos', Description:""},
+        { key: '9', GroupName: ' Haitham bin Tariq', Description:""},
+        { key: '10', GroupName: ' Haitham bin Tariq', Description:""},
+        { key: '11', GroupName: ' Haitham bin Tariq', Description:""},
+        { key: '12', GroupName: 'EXG4545FR02',  Description:""},
+        { key: '13', GroupName: 'EXG4545FR01',  Description:""},
+        { key: '14', GroupName: 'EXG4545FR02',  Description:""},
     ];
 
     const Addhandle = () => {
@@ -83,49 +80,22 @@ const MultiViewTable: React.FC = ({ }) => {
     );
     const allColumns = [
         {
-            title: 'User Name',
-            dataIndex: 'UserName',
-            key: 'UserName',
+            title: 'Group Name',
+            dataIndex: 'GroupName',
+            key: 'GroupName',
             width: 150,
-            sorter: (a: DataSource, b: DataSource) => a.UserName.localeCompare(b.UserName),
+            sorter: (a: DataSource, b: DataSource) => a.GroupName.localeCompare(b.GroupName),
 
         },
         {
-            title: 'Role',
-            dataIndex: 'Role',
-            key: 'Role',
-            width: 120,
-            sorter: (a: DataSource, b: DataSource) => a.Role.localeCompare(b.Role),
+            title: 'Description',
+            dataIndex: 'Description',
+            key: 'Description',
+            sorter: (a: DataSource, b: DataSource) => a.Description.localeCompare(b.Description),
+
         },
-        {
-            title: 'Email Address',
-            dataIndex: 'EmailAddress',
-            key: 'EmailAddress',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.EmailAddress.localeCompare(b.EmailAddress),
-        },
-        {
-            title: 'PhoneNumber',
-            dataIndex: 'PhoneNumber',
-            key: 'PhoneNumber',
-            width: 80,
-            sorter: (a: DataSource, b: DataSource) => a.PhoneNumber.localeCompare(b.PhoneNumber),
-        },
-        {
-            title: 'Start Date',
-            dataIndex: 'StartDate',
-            key: 'StartDate',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.StartDate.localeCompare(b.StartDate),
-          
-        },
-        {
-            title: 'End Date',
-            dataIndex: 'EndDate',
-            key: 'EndDate',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.EndDate.localeCompare(b.EndDate),
-        },
+        
+        
       
      
         {
@@ -148,12 +118,7 @@ const MultiViewTable: React.FC = ({ }) => {
     const filteredColumns = allColumns.filter((col) => selectedColumns.includes(col.key) || col.key === 'action');
 
     const filteredData = dataSource.filter((item) =>
-        item.Role.toLowerCase().includes(searchText) ||
-        item.UserName.toLowerCase().includes(searchText) ||
-        item.EmailAddress.toLowerCase().includes(searchText) ||
-        item.PhoneNumber.toLowerCase().includes(searchText) ||
-        item.StartDate.toLowerCase().includes(searchText) ||
-        item.EndDate.toLowerCase().includes(searchText) 
+        item.GroupName.toLowerCase().includes(searchText) 
     );
 
     const items = [
@@ -172,11 +137,11 @@ const MultiViewTable: React.FC = ({ }) => {
         {
             label: (
                 <Checkbox
-                    checked={selectedColumns.includes('UserName')}
-                    value={'UserName'}
-                    onChange={(e) => handleCheckboxChange(e.target.checked, 'UserName')}
+                    checked={selectedColumns.includes('GroupName')}
+                    value={'GroupName'}
+                    onChange={(e) => handleCheckboxChange(e.target.checked, 'GroupName')}
                 >
-                    User Name
+                    Group Name
                 </Checkbox>
             ),
             key: '2',

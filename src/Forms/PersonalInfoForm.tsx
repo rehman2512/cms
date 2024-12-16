@@ -287,12 +287,16 @@ const PersonalInfoForm: React.FC<PersonalProps> = ({ Back }) => {
                     control={control}
                     name="SelectRegion"
                     options={[
-                      { label: "Sindh", value: 1 },
-                      { label: "Punjab", value: 2 },
-                      { label: "Balochistan", value: 3 },
-                      { label: "KPK", value: 3 },
+                      { label: "Nizwa	", value: 1 },
+                      { label: "Samail", value: 2 },
+                      { label: "Bahla", value: 3 },
+                      { label: "Adam", value: 4 },
+                      { label: "Al Hamra", value: 5 },
+                      { label: "Manah", value: 6 },
+                      { label: "Bidbid	", value: 7 },
+                      { label: "Izki	", value: 8 },
                     ]}
-                    placeholder="Select Region"
+                    placeholder={"Select Region"}
                     errors={errors}
                     className="form-select-container"
                     classError="form-error-message"

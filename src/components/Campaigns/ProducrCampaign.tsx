@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import style from './campaign.module.css'
 import { Card, List, Typography, Row, Col, Button, Space, Select } from 'antd';
 import { ArrowRightOutlined, ArrowUpOutlined } from '@ant-design/icons';
-import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Pie,PieChart } from 'recharts';
+import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Pie, PieChart, Cell } from 'recharts';
 import { MdOutlineAnalytics } from 'react-icons/md';
 import { LuDot } from "react-icons/lu";
 import { MdOutlineCampaign } from "react-icons/md";
@@ -17,6 +17,9 @@ import { PiUserCircleCheckFill } from "react-icons/pi";
 import { CiMoneyBill } from "react-icons/ci";
 import { MdAccountBalance } from "react-icons/md";
 import { FaCcMastercard } from "react-icons/fa6";
+import Cityimage1 from '../../Images/city1.png'
+import Cityimage2 from '../../Images/city2.png'
+import Cityimage3 from '../../Images/city3.png'
 
 import { FaRegCreditCard } from "react-icons/fa";
 
@@ -33,22 +36,22 @@ const data = [
 ];
 
 const areas = [
-    { name: 'City Centre', views: '121k', color: '#dcc670' },
-    { name: 'North Centre', views: '64k', color: 'linear-gradient(to right, #eadaa4, #dcc670)' },
-    { name: 'South Centre', views: '112k', color: '#eadaa4' },
+    { name: 'City Centre', views: '121k', color: '#E2E5FE', image:Cityimage1 },
+    { name: 'North Centre', views: '64k', color: '#E2E5FE',image:Cityimage2 },
+    { name: 'South Centre', views: '112k', color: '#E2E5FE',image:Cityimage3 },
 ];
 
 const data2 = [
-    { name: 'Shopee', value: 310, color: '#000000', icon: <LuDot size={24} color='#3884ff' /> },
-    { name: 'Tokopedia', value: 217, color: '#000000', icon: <LuDot size={24} color='#3884ff' /> },
-    { name: 'Website', value: 351, color: '#000000', icon: <LuDot size={24} color='#7161ef' /> },
+    { name: 'National Day', value: 310, color: '#000000', icon: <LuDot size={30} color='#3884ff' /> },
+    { name: 'Eid Celebrations', value: 217, color: '#000000', icon: <LuDot size={30} color='#3884ff' /> },
+    { name: 'New Year', value: 351, color: '#000000', icon: <LuDot size={30} color='#7161ef' /> },
 ];
 
 const transactions = [
     {
         icon: <GrAtm size={24} color="#3fd0c9" />,
         title: 'ATM Withdrawal Processed',
-        description: '$200',
+        description: '',
         id: '#12OQKL',
         color: "#3884ff"
 
@@ -56,7 +59,7 @@ const transactions = [
     {
         icon: <MdOutlineCancel size={24} color="#ff7eb3" />,
         title: 'Bill Payment',
-        description: '$150 failed customer (1002)',
+        description: '',
         id: '#24CCML',
         color: "#3884ff"
 
@@ -64,7 +67,7 @@ const transactions = [
     {
         icon: <LuBox size={24} color="#3884ff" />,
         title: 'Funds Transfer Successful',
-        description: '$500',
+        description: '',
         id: '#01QAMB',
         color: "#3884ff"
 
@@ -72,7 +75,7 @@ const transactions = [
     {
         icon: <FiDownload size={24} color="#7161ef" />,
         title: 'Mobile Recharge Processed',
-        description: '$30',
+        description: '',
         id: '#08OMLB',
         color: "#3884ff"
 
@@ -80,7 +83,7 @@ const transactions = [
     {
         icon: <GrAtm size={24} color="#3fd0c9" />,
         title: 'Balance Inquiry Completed',
-        description: 'Account ***1225',
+        description: '',
         id: '#14OFKS',
         color: "#3884ff"
 
@@ -88,7 +91,7 @@ const transactions = [
     {
         icon: <MdOutlineCancel size={24} color="#ff758c" />,
         title: 'Electricity Bill Payment Confirmed',
-        description: '$75',
+        description: '',
         id: '#20ITHP',
         color: "#3884ff"
 
@@ -96,16 +99,24 @@ const transactions = [
     {
         icon: <FiDownload size={24} color="#3884ff" />,
         title: 'Subscription Payment Processed',
-        description: '$45',
+        description: '',
+        id: '#08OFGK',
+        color: "#3884ff"
+    },
+    {
+        icon: <FiDownload size={24} color="#3884ff" />,
+        title: 'Subscription Payment Processed',
+        description: '',
         id: '#08OFGK',
         color: "#3884ff"
     },
 ];
 
 const datapie = [
-    { name: 'Reward', value: 809 },
-    { name: 'Non-Reward', value: 811 },
-    { name: 'Multi-Reward', value: 600 },
+    { name: "Credit Card", value: 2992 },
+    { name: "Debit Card", value: 8243 },
+    { name: "Prepaid Card", value: 5672  },
+    { name: "Accounts", value: 8243 }
 ];
 
 
@@ -122,13 +133,14 @@ interface CampaignData {
 
 const TransactionCampaign: React.FC = () => {
     const [campaigns, setCampaigns] = useState<CampaignData[]>([]);
+    const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
     useEffect(() => {
         const fetchCampaigns = async () => {
             const data: CampaignData[] = [
                 {
                     title: "Credit Card",
-                    amount: "$2,992",
+                    amount: "OMR 2,992",
                     percentageChange: "19%",
                     transactions: 1455,
                     lastMonth: "Last Month",
@@ -137,7 +149,7 @@ const TransactionCampaign: React.FC = () => {
                 },
                 {
                     title: "Debit Card",
-                    amount: "$5,672",
+                    amount: "OMR 5,672",
                     percentageChange: "12%",
                     transactions: 2350,
                     lastMonth: "Last Month",
@@ -148,7 +160,7 @@ const TransactionCampaign: React.FC = () => {
 
                 {
                     title: "Prepaid Card",
-                    amount: "$8,243",
+                    amount: "OMR 8,243",
                     percentageChange: "25%",
                     transactions: 3255,
                     lastMonth: "Last Month",
@@ -157,7 +169,7 @@ const TransactionCampaign: React.FC = () => {
                 },
                 {
                     title: "Accounts",
-                    amount: "$8,243",
+                    amount: "OMR 8,243",
                     percentageChange: "25%",
                     transactions: 3255,
                     lastMonth: "Last Month",
@@ -179,7 +191,7 @@ const TransactionCampaign: React.FC = () => {
                             <Space>
                                 <Card
                                     style={{
-                                        width: 230,
+                                        width: 240,
                                         borderRadius: 10,
                                         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
                                         // flex:'0 1 calc(40% - 10px)',
@@ -190,7 +202,7 @@ const TransactionCampaign: React.FC = () => {
                                     <Row justify="space-between" align="middle">
                                         <Col className={style.cardTitle}>
                                             <Text>{campaign.icon}</Text>
-                                            <Text strong style={{ fontSize: 12 }}>
+                                            <Text strong style={{ fontSize: 12, marginLeft: 5 }}>
                                                 {campaign.title}
                                             </Text>
                                         </Col>
@@ -220,7 +232,7 @@ const TransactionCampaign: React.FC = () => {
                         </div>
                     ))}
                     <div className={`col-lg-4 ${style.chart}`}>
-                    <Card
+                        <Card
                             style={{
                                 borderRadius: 10,
                                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
@@ -246,32 +258,53 @@ const TransactionCampaign: React.FC = () => {
                                     <Option value="thisMonth">This month</Option>
                                 </Select>
                             </div>
-                            <div style={{ marginBottom: '20px', display: 'flex', justifyContent:"space-between" }}>
+                            <div style={{ marginBottom: '20px', display: 'flex', justifyContent: "space-between" }}>
                                 <Text strong className={style.Legend}>
-                                    809<Text type="secondary">
-                                        <LuDot color="#5550cd" size={24} />Reward
+                                    <Text type="secondary">
+                                        <LuDot color="#5550cd" size={24} />Credit Card
                                     </Text>
                                 </Text>
                                 <Text strong className={style.Legend2}>
-                                    811<Text type="secondary">
-                                        <LuDot color="#6adddb" size={24} />Multi-Reward
+                                    <Text type="secondary">
+                                        <LuDot color="#6adddb" size={24} />Debit Card
                                     </Text>
                                 </Text>
                                 <Text strong className={style.Legend2}>
-                                    611<Text type="secondary">
-                                        <LuDot color="#6adddb" size={24} />Non-Reward
+                                    <Text type="secondary">
+                                        <LuDot color="#6adddb" size={24} />Prepaid Card
+                                    </Text>
+                                </Text>
+                                <Text strong className={style.Legend2}>
+                                    <Text type="secondary">
+                                        <LuDot color="#6adddb" size={24} />Accounts
                                     </Text>
                                 </Text>
                             </div>
-                            <ResponsiveContainer width="100%" height={210}>
+                            <ResponsiveContainer width={'100%'} height={220}  className={style.PieChart}>
+    <PieChart>
+        <Tooltip formatter={(value: number, name: string, props: any) =>
+            `${((value / datapie.reduce((acc, cur) => acc + cur.value, 0)) * 100).toFixed(2)}%`
+        } />
+        <Pie
+            data={datapie}
+            cx={210}
+            cy={110}
+            innerRadius={60}
+            outerRadius={80}
+            fill="#8884d8"
+            paddingAngle={5}
+            dataKey="value"
+            label={(entry) =>
+                `${((entry.value / datapie.reduce((acc, cur) => acc + cur.value, 0)) * 100).toFixed(2)}%`
+            }
+        >
+            {datapie.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+        </Pie>
+    </PieChart>
+</ResponsiveContainer>
 
-                                <PieChart >
-                                    <Tooltip  />
-                                    <Pie data={datapie} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={60} fill="#eadaa4" />
-                                    <Pie data={datapie} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={40} fill="#095179" />
-                                    <Pie data={datapie} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={80} outerRadius={100} fill="#dcc670" label />
-                                </PieChart>
-                            </ResponsiveContainer>
                         </Card>
                     </div>
                 </div>
@@ -323,6 +356,7 @@ const TransactionCampaign: React.FC = () => {
                                 }}
                             >
                                 <Col>
+                                {area.image && <img src={area.image} alt={area.name} style={{  marginRight: '10px' }} />}
                                     <Text strong>{area.name}</Text>
                                 </Col>
                                 <Col>
@@ -373,18 +407,19 @@ const TransactionCampaign: React.FC = () => {
                                 </Row>
                             ))}
                         </div>
-
-                        <ResponsiveContainer width="100%" height={200}>
-                            <BarChart data={data2} layout="vertical" >
-                                <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-                                <XAxis type="number" domain={[0, 500]} />
-                                <YAxis hide={true} dataKey="" type="category" />
-                                <Tooltip />
-                                <Bar dataKey="value" fill="#eadaa4" radius={[0, 5, 5, 0]} />
-                                <Bar dataKey="value" fill="#eadaa4" radius={[0, 5, 5, 0]} />
-                                <Bar dataKey="value" fill="#dcc670" radius={[0, 5, 5, 0]} />
-                            </BarChart>
-                        </ResponsiveContainer>
+    <ResponsiveContainer width="100%" height={210}>
+                                <BarChart data={data2} layout="horizontal">
+                                    <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+                                    <YAxis domain={[0, 500]} type="number" dataKey='name' />
+                                    <XAxis type="category" dataKey='name' />
+                                    <Tooltip />
+                                    <Bar dataKey="value">
+                                        {data2.map((entry, index) => (
+                                            <Cell key={`bar-${index}`} fill={COLORS[index % COLORS.length]} />
+                                        ))}
+                                    </Bar>
+                                </BarChart>
+                            </ResponsiveContainer>
                     </Card>
 
                 </div>

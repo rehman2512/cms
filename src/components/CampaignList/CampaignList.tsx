@@ -14,12 +14,10 @@ interface DataSource {
     CampaignName: string;
     StartTime: string;
     EndTime: string;
-    Price: string;
     Status: string;
     MinSpend: string;
     MaxSpend: string;
     Frequency: string;
-    Platform: string;
 }
 
 const MultiViewTable: React.FC = ({ }) => {
@@ -35,20 +33,17 @@ const MultiViewTable: React.FC = ({ }) => {
     const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
     const [currentRowKey, setCurrentRowKey] = useState<string | null>(null);
     const [dataSource, setDataSource] = useState<DataSource[]>([
-        { key: '1', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '2', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '3', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '4', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '5', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '6', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '7', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '8', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '9', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '10', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '11', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '12', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '13', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '14', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Pending", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
+        { key: '1', CampaignName: 'National Day', StartTime: '18/11/2024', EndTime: "23/11/2024",  Status: "Approved", MinSpend: "50", MaxSpend: "500", Frequency: "Recurring", },
+        { key: '2', CampaignName: 'New Year', StartTime: '1/9/2024', EndTime: "20/9/2024",  Status: "Decline", MinSpend: "75", MaxSpend: "500", Frequency: "Recurring", },
+        { key: '3', CampaignName: 'Eid Celebration', StartTime: '18/7/2024', EndTime: "20/7/2024",  Status: "Pending", MinSpend: "100", MaxSpend: "500", Frequency: "Once", },
+        { key: '4', CampaignName: 'Mid Year', StartTime: '01/6/2024', EndTime: "30/6/2024",  Status: "Approved", MinSpend: "500", MaxSpend: "1000", Frequency: "Once", },
+        { key: '6', CampaignName: 'Eid Celebration', StartTime: '10/4/2024', EndTime: "13/4/2024",  Status: "Pending", MinSpend: "50", MaxSpend: "500", Frequency: "Recurring", },
+        { key: '5', CampaignName: 'Ramzan Kareem', StartTime: '10/3/2024', EndTime: "10/4/2024",  Status: "Decline", MinSpend: "30", MaxSpend: "400", Frequency: "Once", },
+        { key: '7', CampaignName: 'New Year', StartTime: '01/1/2024', EndTime: "30/1/2024",  Status: "Approved", MinSpend: "150", MaxSpend: "350", Frequency: "Once", },
+        { key: '8', CampaignName: 'New Year', StartTime: '01/1/2024', EndTime: "30/1/2024",  Status: "Pending", MinSpend: "200", MaxSpend: "450", Frequency: "Recurring", },
+        { key: '9', CampaignName: 'Spend & Win', StartTime: '01/9/2023', EndTime: "30/9/2023",  Status: "Hold", MinSpend: "15", MaxSpend: "250", Frequency: "Recurring", },
+        { key: '10', CampaignName: 'Eid ul Adha', StartTime: '15/8/2023', EndTime: "21/8/2023",  Status: "Pending", MinSpend: "200", MaxSpend: "1500", Frequency: "Once", },
+        { key: '11', CampaignName: 'Spend & Win', StartTime: '01/2/2023', EndTime: "01/3/2023",  Status: "Pending", MinSpend: "300", MaxSpend: "3000", Frequency: "Once", },
 
         // ...other data entries
     ])
@@ -86,7 +81,7 @@ const MultiViewTable: React.FC = ({ }) => {
 
     const actionMenu = (key: string) => (
         <Space direction="vertical" className={style.actions}>
-            <div className={style.dropdownItem}>Edit</div>
+            <div className={style.dropdownItem} onClick={Addhandle}>Edit</div>
             <div
                 className={style.dropdownItem}
                 onClick={() => console.log(`Delete ${key}`)}
@@ -125,13 +120,7 @@ const MultiViewTable: React.FC = ({ }) => {
             width: 100,
             sorter: (a: DataSource, b: DataSource) => a.EndTime.localeCompare(b.EndTime),
         },
-        {
-            title: 'Price',
-            dataIndex: 'Price',
-            key: 'Price',
-            width: 80,
-            sorter: (a: DataSource, b: DataSource) => a.Price.localeCompare(b.Price),
-        },
+
         {
             title: 'Status',
             dataIndex: 'Status',
@@ -148,17 +137,17 @@ const MultiViewTable: React.FC = ({ }) => {
             },
         },
         {
-            title: 'Min Spend',
+            title: 'Min Spend (OMR)',
             dataIndex: 'MinSpend',
             key: 'MinSpend',
-            width: 100,
+            width: 150,
             sorter: (a: DataSource, b: DataSource) => a.MinSpend.localeCompare(b.MinSpend),
         },
         {
-            title: 'Max Spend',
+            title: 'Max Spend (OMR)',
             dataIndex: 'MaxSpend',
             key: 'MaxSpend',
-            width: 100,
+            width: 150,
             sorter: (a: DataSource, b: DataSource) => a.MaxSpend.localeCompare(b.MaxSpend),
         },
         {
@@ -168,13 +157,7 @@ const MultiViewTable: React.FC = ({ }) => {
             width: 100,
             sorter: (a: DataSource, b: DataSource) => a.Frequency.localeCompare(b.Frequency),
         },
-        {
-            title: 'Platform',
-            dataIndex: 'Platform',
-            key: 'Platform',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.Platform.localeCompare(b.Platform),
-        },
+        
         {
             title: 'Action',
             key: 'action',
@@ -198,12 +181,10 @@ const MultiViewTable: React.FC = ({ }) => {
         item.StartTime.toLowerCase().includes(searchText) ||
         item.CampaignName.toLowerCase().includes(searchText) ||
         item.EndTime.toLowerCase().includes(searchText) ||
-        item.Price.toLowerCase().includes(searchText) ||
         item.Status.toLowerCase().includes(searchText) ||
         item.MinSpend.toLowerCase().includes(searchText) ||
         item.MaxSpend.toLowerCase().includes(searchText) ||
-        item.Frequency.toLowerCase().includes(searchText) ||
-        item.Platform.toLowerCase().includes(searchText)
+        item.Frequency.toLowerCase().includes(searchText) 
     );
 
     const items = [
@@ -243,18 +224,7 @@ const MultiViewTable: React.FC = ({ }) => {
             ),
             key: '3',
         },
-        {
-            label: (
-                <Checkbox
-                    checked={selectedColumns.includes('Price')}
-                    value={'Price'}
-                    onChange={(e) => handleCheckboxChange(e.target.checked, 'Price')}
-                >
-                    Price
-                </Checkbox>
-            ),
-            key: '4',
-        },
+        
         {
             label: (
                 <Checkbox
@@ -265,7 +235,7 @@ const MultiViewTable: React.FC = ({ }) => {
                     Status
                 </Checkbox>
             ),
-            key: '5',
+            key: '4',
         },
         {
             label: (
@@ -277,7 +247,7 @@ const MultiViewTable: React.FC = ({ }) => {
                     Min Spend
                 </Checkbox>
             ),
-            key: '6',
+            key: '5',
         },
         {
             label: (
@@ -289,7 +259,7 @@ const MultiViewTable: React.FC = ({ }) => {
                     Max Spend
                 </Checkbox>
             ),
-            key: '7',
+            key: '8',
         },
         {
             label: (
@@ -301,20 +271,9 @@ const MultiViewTable: React.FC = ({ }) => {
                     Frequency
                 </Checkbox>
             ),
-            key: '8',
-        },
-        {
-            label: (
-                <Checkbox
-                    checked={selectedColumns.includes('Platform')}
-                    value={'Platform'}
-                    onChange={(e) => handleCheckboxChange(e.target.checked, 'Platform')}
-                >
-                    Platform
-                </Checkbox>
-            ),
             key: '9',
-        }
+        },
+        
     ];
 
 
@@ -379,18 +338,7 @@ const MultiViewTable: React.FC = ({ }) => {
                     <div className={style.Route}>
                         <h5>Campaign List</h5>
                         <div className={style.btns}>
-                            {/* <Button
-                                Text={'Data Range'}
-                                buttonClass={style.buttonAdd}
-                                onClick={() => searchText}
-                                Disable={loadingText}
-                            />
-                            <Button
-                                Text={'Filter'}
-                                buttonClass={style.buttonAdd}
-                                onClick={() => searchText}
-                                Disable={loadingText}
-                            /> */}
+
                             <Button
                                 Text={'Create campaign'}
                                 buttonClass={style.createBtn}

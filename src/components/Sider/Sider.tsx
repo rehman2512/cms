@@ -3,7 +3,7 @@ import style from './sider.module.css';
 import Logo from '../../Images/ahlibank.png';
 import { CiGrid41 } from "react-icons/ci";
 import { IoMdMenu } from "react-icons/io";
-import { Menu, Input} from 'antd';
+import { Menu, Input } from 'antd';
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { MdDashboard } from "react-icons/md";
 import { FaCarSide } from "react-icons/fa";
@@ -28,6 +28,9 @@ import TradeTransaction from "../TradeTransaction/TradeTransaction"
 import Reporting from "../Reporting/Reporting"
 import User from '../UserManage/UserManage'
 import Role from '../RoleManage/RoleManage'
+import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Space } from 'antd';
+import Group from '../Group/Group'
 
 
 
@@ -68,8 +71,8 @@ const Sider: React.FC = () => {
         {
             key: 'Dashboard',
             label: 'Dashboard',
-            icon: <MdDashboard style={{ fontSize: 24,  }} />,
-            
+            icon: <MdDashboard style={{ fontSize: 24, }} />,
+
         },
         {
             type: 'divider',
@@ -78,7 +81,7 @@ const Sider: React.FC = () => {
         {
             key: 'Campaign_Management',
             label: 'Campaign Mangement',
-            icon: <MdCampaign style={{ fontSize: 24,  }} />,
+            icon: <MdCampaign style={{ fontSize: 24, }} />,
             children: [
                 { key: 'CampaignList', label: 'Campaign List' },
             ],
@@ -86,7 +89,7 @@ const Sider: React.FC = () => {
         {
             key: 'Transaction',
             label: 'Transaction',
-            icon: <AiOutlineTransaction style={{ fontSize: 24,  }} />,
+            icon: <AiOutlineTransaction style={{ fontSize: 24, }} />,
             children: [
                 { key: 'Transfer', label: 'Transfer' },
                 { key: 'BillPaymentTransaction', label: 'Bill Payment Transactions' },
@@ -99,7 +102,7 @@ const Sider: React.FC = () => {
         {
             key: 'Winners',
             label: 'Winners',
-            icon: <GiPodiumWinner style={{ fontSize: 24,  }} />,
+            icon: <GiPodiumWinner style={{ fontSize: 24, }} />,
             children: [
                 { key: 'CampaignWinner', label: 'Campaign Winner' },
             ],
@@ -107,7 +110,7 @@ const Sider: React.FC = () => {
         {
             key: 'Reporting',
             label: 'Reporting',
-            icon: <TbReport style={{ fontSize: 24,  }} />,
+            icon: <TbReport style={{ fontSize: 24, }} />,
             children: [
                 { key: 'Reporting', label: 'Reporting' },
             ],
@@ -115,10 +118,11 @@ const Sider: React.FC = () => {
         {
             key: 'User_Management',
             label: 'User Management',
-            icon: <FaUserCircle style={{ fontSize: 24,  }} />,
+            icon: <FaUserCircle style={{ fontSize: 24, }} />,
             children: [
                 { key: 'Role', label: 'Role' },
                 { key: 'User', label: 'User' },
+                { key: 'Group', label: 'User Group' },
             ],
         },
     ];
@@ -126,7 +130,7 @@ const Sider: React.FC = () => {
     const itemsClose: MenuProps['items'] = [
         {
             key: 'Dashboard',
-            icon: <MdDashboard style={{ fontSize: 24,  }} />,
+            icon: <MdDashboard style={{ fontSize: 24, }} />,
         },
         {
             type: 'divider',
@@ -134,22 +138,25 @@ const Sider: React.FC = () => {
         },
         {
             key: 'Campaign_Management',
-            icon: <MdCampaign style={{ fontSize: 24,  }} />,
+            icon: <MdCampaign style={{ fontSize: 24, }} />,
         },
         {
-            key: 'Transaction',
-            icon: <AiOutlineTransaction style={{ fontSize: 24,  }} />,
+            key: 'Transfer',
+            icon: <AiOutlineTransaction style={{ fontSize: 24, }} />,
         },
-      
+
         {
             key: 'User_Management',
-            icon: <FaUserCircle style={{ fontSize: 24,  }} />,
+            icon: <FaUserCircle style={{ fontSize: 24, }} />,
         },
     ];
 
     const HandleClick: MenuProps['onClick'] = (info) => {
         setView({ key: info.key });
     };
+
+
+
 
     return (
         <section>
@@ -161,32 +168,32 @@ const Sider: React.FC = () => {
                                 {isClient && (
                                     <img alt='logo' src={Logo} className={style.LogoClose} width={100} />
                                 )}
-                                
+
                                 <div className={style.sideList}>
                                     <Menu
                                         onClick={HandleClick}
                                         items={itemsClose}
-                                        defaultSelectedKeys={['Dashboard']}
+                                        defaultSelectedKeys={[typeof isView === 'object' ? isView.key : '']}
                                         defaultOpenKeys={['sub1']}
                                         mode="inline"
-                                        style={{ border: "none", }}
-                                        className={style.sideListMenu}
+                                        style={{ border: "none", color: "#095179" }}
+                                        className={`${style.sideListMenu} ${style.custommenu}`}
                                     />
                                 </div>
                             </div>
                         ) : (
                             <div className={style.Container}>
                                 {isClient && (
-                                    <img alt='logo' src={Logo} className={style.LogoOpen} width={200}  />
+                                    <img alt='logo' src={Logo} className={style.LogoOpen} width={200} />
                                 )}
                                 <div className={style.sideList}>
                                     <Menu
                                         onClick={HandleClick}
                                         items={items}
-                                        defaultSelectedKeys={['Dashboard']}
+                                        defaultSelectedKeys={[typeof isView === 'object' ? isView.key : '']}
                                         defaultOpenKeys={['sub1']}
                                         mode="inline"
-                                        style={{ border: "none", color: "#626C70", fontSize: "14px" }}
+                                        style={{ border: "none", color: "#095179", fontSize: "14px" }}
                                         className={`${style.sideListMenu} ${style.custommenu}`}
                                         theme='light'
 
@@ -199,16 +206,32 @@ const Sider: React.FC = () => {
                             <div className={style.ContainerHeader}>
                                 <div className={style.headerSearch}>
                                     <IoMdMenu size={28} className={style.menuIcon} onClick={handleMenuToggle} />
-                                     <Input className={style.searchInput} placeholder='Search...' prefix={<CiSearch size={24} />} />
+                                    <Input className={style.searchInput} placeholder='Search...' prefix={<CiSearch size={24} />} />
                                 </div>
                                 <div className={style.profile}>
-                                    <CiGrid41 className={style.amdin} size={24}  />
-                                    <IoIosNotificationsOutline className={style.amdin} size={24}  />
+                                    <CiGrid41 className={style.amdin} size={24} />
+                                    <Dropdown overlay={
+                                        <Menu
+                                            items={[
+                                                { label: 'Profile', key: 'profile' },
+                                                { label: 'Logout', key: 'logout' },
+                                            ]}
+                                        />
+                                    } trigger={['click']}>
+                                        <a onClick={(e) => e.preventDefault()}>
+                                            <Space>
+                                                <IoIosNotificationsOutline className={style.amdin} size={24} />
+                                            </Space>
+                                        </a>
+                                    </Dropdown>
+
                                 </div>
                             </div>
                             <div>
                                 {typeof isView === 'object' && isView.key === 'CampaignList' && <PersonalInfo />}
+                                {typeof isView === 'object' && isView.key === 'Campaign_Management' && <PersonalInfo />}
                                 {typeof isView === 'object' && isView.key === 'Dashboard' && <Dashboard />}
+                                {typeof isView === 'object' && isView.key === 'Transfer' && <Transfer />}
                                 {typeof isView === 'object' && isView.key === 'Transfer' && <Transfer />}
                                 {typeof isView === 'object' && isView.key === 'CampaignWinner' && <CampaignWinner />}
                                 {typeof isView === 'object' && isView.key === 'BillPaymentTransaction' && <BillPayment />}
@@ -219,6 +242,8 @@ const Sider: React.FC = () => {
                                 {typeof isView === 'object' && isView.key === 'Reporting' && <Reporting />}
                                 {typeof isView === 'object' && isView.key === 'Role' && <Role />}
                                 {typeof isView === 'object' && isView.key === 'User' && <User />}
+                                {typeof isView === 'object' && isView.key === 'Group' && <Group />}
+                                {typeof isView === 'object' && isView.key === 'User_Management' && <User />}
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,13 @@
 .Container {
     margin-top: 15px;
+    background-color: #ffff;
+    height: 85vh;
+    overflow-y: scroll;
+    width: 80vw;
+    padding: 10px;
+    border-radius: 6px;
+
 }
-
-
 
 .SignInContainer h4 {
     font-size: 33px;
@@ -84,4 +89,5 @@
     margin-left: 13px;
     cursor: pointer;
     color: #095179;
+    margin-top: 10px;
 }

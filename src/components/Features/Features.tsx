@@ -78,33 +78,68 @@ const mockTags = ['cat', 'dog', 'bird'];
 const mockData = [
     {
         key: '1',
-        title: ' ATM Cards transactions',
-        tag: 'ACT',
+        title: ' ATM',
+        tag: 'ATM',
     },
     {
         key: '2',
-        title: 'POS Cards transactions',
-        tag: 'PCT',
+        title: 'POS',
+        tag: 'POS',
     },
     {
         key: '3',
-        title: 'ONLINE Cards transactions',
-        tag: 'OCT',
+        title: 'E-Commerce',
+        tag: 'Online',
     },
     {
         key: '4',
-        title: 'Transfers – Local or International',
-        tag: 'TLI',
+        title: 'Transfers – Local',
+        tag: 'FT',
     },
     {
         key: '5',
+        title: 'Transfers – International',
+        tag: 'IFT',
+    },
+    {
+        key: '6',
+        title: 'Bill Payment',
+        tag: 'Utility',
+    },
+    {
+        key: '7',
+        title: 'Salary Transfer',
+        tag: 'Payroll',
+    },
+    {
+        key: '8',
+        title: 'Debit Card',
+        tag: 'DC',
+    },
+    {
+        key: '9',
         title: 'Credit Card',
         tag: 'CC',
     },
     {
-        key: '6',
-        title: 'Debit Card',
-        tag: 'DC',
+        key: '10',
+        title: 'Prepaid Card',
+        tag: 'PC',
+    },
+    {
+        key: '11',
+        title: 'Account',
+        tag: 'ACC',
+    },
+    {
+        key: '12',
+        title: 'Mobile Banking',
+        tag: 'MB',
+    },
+    {
+        key: '13',
+        title: 'Internet Banking',
+        tag: 'IB',
     },
 
 ]
@@ -167,6 +202,7 @@ const App: React.FC<PersonalProps> = ({ Back }) => {
                 <div className={style.containerFluid}>
                     <FaArrowLeft size={24} onClick={Back} className={style.backArrow} />
                     <div className={style.container}>
+                        <h2>Feature Dynamics</h2>
                         <Flex align="start" gap="middle" vertical className={style.feature}>
                             <TableTransfer
                                 dataSource={mockData}

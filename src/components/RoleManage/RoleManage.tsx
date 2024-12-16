@@ -5,30 +5,23 @@ import { SettingOutlined } from '@ant-design/icons';
 import { CiMenuKebab, CiFilter, CiSearch } from 'react-icons/ci';
 import Button from '../Basic/button';
 import FormModal from '../Modal/FormModal';
-import Form from '../../Forms/PersonalInfoForm'
-import Features from '../Features/Features'
+import Features from '../../Forms/RoleForm'
 
 
 interface DataSource {
     key: string;
-    CampaignName: string;
-    StartTime: string;
-    EndTime: string;
-    Price: string;
-    Status: string;
-    MinSpend: string;
-    MaxSpend: string;
-    Frequency: string;
-    Platform: string;
+    RoleName: string;
+    Description: string;
+    Active: string;
+  
 }
 
-const MultiViewTable: React.FC = ({ }) => {
+const MultiViewTable: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [pageSize, setPageSize] = useState<number>(9);
     const [searchText, setSearchText] = useState<string>('');
-    const [selectedColumns, setSelectedColumns] = useState<string[]>(['CampaignName', 'StartTime', 'EndTime', 'Price', 'Status', 'MinSpend', 'MaxSpend', 'Frequency', 'Platform']);
+    const [selectedColumns, setSelectedColumns] = useState<string[]>(['RoleName', 'Description', 'Active', ]);
     const [loadingText, setLoadingText] = useState<boolean>(true)
-    const [buttonLoading, setButtonLoading] = useState<boolean>(false);
     const [open, setOpen] = useState(false);
     const [showForm, setShowForm] = useState<boolean>(false);
     const [modalText, setModalText] = useState<string>('')
@@ -44,21 +37,16 @@ const MultiViewTable: React.FC = ({ }) => {
     };
 
     const dataSource: DataSource[] = [
-        { key: '1', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '2', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '3', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '4', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '5', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '6', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '7', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '8', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '9', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '10', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '11', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '12', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '13', CampaignName: 'EXG4545FR01', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
-        { key: '14', CampaignName: 'EXG4545FR02', StartTime: '18/8/2024', EndTime: "20/8/2024", Price: "5", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", Platform: "ATM" },
+        { key: '1', RoleName: 'Administrator',   Description: "Responsible for managing system-wide configurations and users", Active: "Active" },
+        { key: '2', RoleName: 'IT Admin',   Description: "Handles IT-related operations and support", Active: "In Active" },
+        { key: '3', RoleName: 'Ops Admin',   Description: "Oversees operational processes and tasks", Active: "Active" },
+        { key: '4', RoleName: 'Product Officer',   Description: "Manages departmental product strategies and goals", Active: "In Active" },
+        { key: '5', RoleName: 'Product Manager',   Description: "Leads product development and lifecycle management", Active: "Active" },
+        { key: '6', RoleName: 'IT Specialist',   Description: "Focuses on IT security and specialized systems", Active: "In Active" },
+        { key: '7', RoleName: 'Campaign Manager',   Description: "Plans and oversees marketing campaigns", Active: "Active" },
+        { key: '8', RoleName: 'Campaign Executor',   Description: "Executes and monitors campaign deliverables", Active: "In Active" },
     ];
+    
 
     const Addhandle = () => {
         setShowForm(true);
@@ -80,80 +68,33 @@ const MultiViewTable: React.FC = ({ }) => {
 
     const actionMenu = (
         <Space direction="vertical" className={style.actions}>
-            <div className={style.dropdownItem}>Edit</div>
+            <div className={style.dropdownItem} onClick={Addhandle}>Edit</div>
             <div className={style.dropdownItem} onClick={HandleDelete}>Delete</div>
-            <div className={style.dropdownItem} onClick={HandleApprove}>Approve</div>
         </Space>
     );
     const allColumns = [
         {
-            title: 'Campaign Name',
-            dataIndex: 'CampaignName',
-            key: 'CampaignName',
+            title: 'RoleName',
+            dataIndex: 'RoleName',
+            key: 'RoleName',
             width: 150,
-            sorter: (a: DataSource, b: DataSource) => a.CampaignName.localeCompare(b.CampaignName),
+            sorter: (a: DataSource, b: DataSource) => a.RoleName.localeCompare(b.RoleName),
 
         },
+     
+      
         {
-            title: 'Start Time',
-            dataIndex: 'StartTime',
-            key: 'StartTime',
-            width: 120,
-            sorter: (a: DataSource, b: DataSource) => a.StartTime.localeCompare(b.StartTime),
+            title: 'Description',
+            dataIndex: 'Description',
+            key: 'Description',
+            width: 450,
+            sorter: (a: DataSource, b: DataSource) => a.Description.localeCompare(b.Description),
         },
         {
-            title: 'End Time',
-            dataIndex: 'EndTime',
-            key: 'EndTime',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.EndTime.localeCompare(b.EndTime),
-        },
-        {
-            title: 'Price',
-            dataIndex: 'Price',
-            key: 'Price',
-            width: 80,
-            sorter: (a: DataSource, b: DataSource) => a.Price.localeCompare(b.Price),
-        },
-        {
-            title: 'Status',
-            dataIndex: 'Status',
-            key: 'Status',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.Status.localeCompare(b.Status),
-            render: (Status: string) => (
-                <Tag style={{ marginInlineEnd: 0 }} color="cyan">
-                    {Status.toUpperCase()}
-                </Tag>
-            ),
-        },
-        {
-            title: 'Min Spend',
-            dataIndex: 'MinSpend',
-            key: 'MinSpend',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.MinSpend.localeCompare(b.MinSpend),
-        },
-        {
-            title: 'Max Spend',
-            dataIndex: 'MaxSpend',
-            key: 'MaxSpend',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.MaxSpend.localeCompare(b.MaxSpend),
-        },
-        {
-            title: 'Frequency',
-            dataIndex: 'Frequency',
-            key: 'Frequency',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.Frequency.localeCompare(b.Frequency),
-        },
-        {
-            title: 'Platform',
-            dataIndex: 'Platform',
-            key: 'Platform',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.Platform.localeCompare(b.Platform),
+            title: 'Active',
+            dataIndex: 'Active',
+            key: 'Active',
+            sorter: (a: DataSource, b: DataSource) => a.Active.localeCompare(b.Active),
         },
         {
             title: 'Action',
@@ -175,62 +116,34 @@ const MultiViewTable: React.FC = ({ }) => {
     const filteredColumns = allColumns.filter((col) => selectedColumns.includes(col.key) || col.key === 'action');
 
     const filteredData = dataSource.filter((item) =>
-        item.StartTime.toLowerCase().includes(searchText) ||
-        item.CampaignName.toLowerCase().includes(searchText) ||
-        item.EndTime.toLowerCase().includes(searchText) ||
-        item.Price.toLowerCase().includes(searchText) ||
-        item.Status.toLowerCase().includes(searchText) ||
-        item.MinSpend.toLowerCase().includes(searchText) ||
-        item.MaxSpend.toLowerCase().includes(searchText) ||
-        item.Frequency.toLowerCase().includes(searchText) ||
-        item.Platform.toLowerCase().includes(searchText)
+        item.RoleName.toLowerCase().includes(searchText) ||
+        item.Description.toLowerCase().includes(searchText) ||
+        item.Active.toLowerCase().includes(searchText) 
     );
 
     const items = [
+
         {
             label: (
                 <Checkbox
-                    checked={selectedColumns.includes('StartTime')}
-                    value={'StartTime'}
-                    onChange={(e) => handleCheckboxChange(e.target.checked, 'StartTime')}
+                    checked={selectedColumns.includes('RoleName')}
+                    value={'RoleName'}
+                    onChange={(e) => handleCheckboxChange(e.target.checked, 'RoleName')}
                 >
-                    Start Time
-                </Checkbox>
-            ),
-            key: '1',
-        },
-        {
-            label: (
-                <Checkbox
-                    checked={selectedColumns.includes('CampaignName')}
-                    value={'CampaignName'}
-                    onChange={(e) => handleCheckboxChange(e.target.checked, 'CampaignName')}
-                >
-                    Campaign Name
+                    RoleName
                 </Checkbox>
             ),
             key: '2',
         },
+     
         {
             label: (
                 <Checkbox
-                    checked={selectedColumns.includes('EndTime')}
-                    value={'EndTime'}
-                    onChange={(e) => handleCheckboxChange(e.target.checked, 'EndTime')}
+                    checked={selectedColumns.includes('Description')}
+                    value={'Description'}
+                    onChange={(e) => handleCheckboxChange(e.target.checked, 'Description')}
                 >
-                    End Time
-                </Checkbox>
-            ),
-            key: '3',
-        },
-        {
-            label: (
-                <Checkbox
-                    checked={selectedColumns.includes('Price')}
-                    value={'Price'}
-                    onChange={(e) => handleCheckboxChange(e.target.checked, 'Price')}
-                >
-                    Price
+                    Description
                 </Checkbox>
             ),
             key: '4',
@@ -238,63 +151,17 @@ const MultiViewTable: React.FC = ({ }) => {
         {
             label: (
                 <Checkbox
-                    checked={selectedColumns.includes('Status')}
-                    value={'Status'}
-                    onChange={(e) => handleCheckboxChange(e.target.checked, 'Status')}
+                    checked={selectedColumns.includes('Active')}
+                    value={'Active'}
+                    onChange={(e) => handleCheckboxChange(e.target.checked, 'Active')}
                 >
-                    Status
+                    Active
                 </Checkbox>
             ),
             key: '5',
         },
-        {
-            label: (
-                <Checkbox
-                    checked={selectedColumns.includes('MinSpend')}
-                    value={'MinSpend'}
-                    onChange={(e) => handleCheckboxChange(e.target.checked, 'MinSpend')}
-                >
-                    Min Spend
-                </Checkbox>
-            ),
-            key: '6',
-        },
-        {
-            label: (
-                <Checkbox
-                    checked={selectedColumns.includes('MaxSpend')}
-                    value={'MaxSpend'}
-                    onChange={(e) => handleCheckboxChange(e.target.checked, 'MaxSpend')}
-                >
-                    Max Spend
-                </Checkbox>
-            ),
-            key: '7',
-        },
-        {
-            label: (
-                <Checkbox
-                    checked={selectedColumns.includes('Frequency')}
-                    value={'Frequency'}
-                    onChange={(e) => handleCheckboxChange(e.target.checked, 'Frequency')}
-                >
-                    Frequency
-                </Checkbox>
-            ),
-            key: '8',
-        },
-        {
-            label: (
-                <Checkbox
-                    checked={selectedColumns.includes('Platform')}
-                    value={'Platform'}
-                    onChange={(e) => handleCheckboxChange(e.target.checked, 'Platform')}
-                >
-                    Platform
-                </Checkbox>
-            ),
-            key: '9',
-        }
+
+
     ];
 
 
@@ -319,7 +186,7 @@ const MultiViewTable: React.FC = ({ }) => {
                         <div className={style.btns}>
                          
                             <Button
-                                Text={'Create User'}
+                                Text={'Create Role'}
                                 buttonClass={style.createBtn}
                                 onClick={Addhandle}
                                 Disable={loadingText}

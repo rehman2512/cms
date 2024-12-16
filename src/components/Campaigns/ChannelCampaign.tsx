@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import style from './campaign.module.css'
 import { Card, List, Typography, Row, Col, Button, Space, Select } from 'antd';
 import { ArrowRightOutlined, ArrowUpOutlined } from '@ant-design/icons';
-import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer ,Pie,PieChart } from 'recharts';
+import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer ,Pie,PieChart,Cell } from 'recharts';
 import { MdOutlineAnalytics } from 'react-icons/md';
 import { LuDot } from "react-icons/lu";
 import { MdOutlineCampaign } from "react-icons/md";
@@ -18,6 +18,10 @@ import { CiMoneyBill } from "react-icons/ci";
 import { FaMobile } from "react-icons/fa";
 import { HiStatusOnline } from "react-icons/hi";
 import { RiUserSettingsFill } from "react-icons/ri";
+import Cityimage1 from '../../Images/city1.png'
+import Cityimage2 from '../../Images/city2.png'
+import Cityimage3 from '../../Images/city3.png'
+
 
 
 
@@ -34,9 +38,9 @@ const data = [
 ];
 
 const areas = [
-    { name: 'City Centre', views: '121k', color: '#dcc670' },
-    { name: 'North Centre', views: '64k', color: 'linear-gradient(to right, #eadaa4, #dcc670)' },
-    { name: 'South Centre', views: '112k', color: '#eadaa4' },
+    { name: 'City Centre', views: '121k', color: '#E2E5FE', image:Cityimage1 },
+    { name: 'North Centre', views: '64k', color: '#E2E5FE',image:Cityimage2 },
+    { name: 'South Centre', views: '112k', color: '#E2E5FE',image:Cityimage3 },
 ];
 
 const data2 = [
@@ -46,16 +50,18 @@ const data2 = [
 ];
 
 const datapie = [
-    { name: 'Reward', value: 809 },
-    { name: 'Non-Reward', value: 811 },
-    { name: 'Multi-Reward', value: 600 },
+    { name: "Mobile Banking", value: 2992 },
+    { name: "Internet Banking", value: 8243 },
+    { name: "MFK", value: 5672  },
+    { name: "CDM", value: 8243 }
 ];
+
 
 const transactions = [
     {
         icon: <GrAtm size={24} color="#3fd0c9" />,
         title: 'ATM Withdrawal Processed',
-        description: '$200',
+        description: '',
         id: '#12OQKL',
         color: "#3884ff"
 
@@ -63,7 +69,7 @@ const transactions = [
     {
         icon: <MdOutlineCancel size={24} color="#ff7eb3" />,
         title: 'Bill Payment',
-        description: '$150 failed customer (1002)',
+        description: 'failed customer (1002)',
         id: '#24CCML',
         color: "#3884ff"
 
@@ -71,7 +77,7 @@ const transactions = [
     {
         icon: <LuBox size={24} color="#3884ff" />,
         title: 'Funds Transfer Successful',
-        description: '$500',
+        description: '',
         id: '#01QAMB',
         color: "#3884ff"
 
@@ -79,7 +85,7 @@ const transactions = [
     {
         icon: <FiDownload size={24} color="#7161ef" />,
         title: 'Mobile Recharge Processed',
-        description: '$30',
+        description: '',
         id: '#08OMLB',
         color: "#3884ff"
 
@@ -107,6 +113,14 @@ const transactions = [
         id: '#08OFGK',
         color: "#3884ff"
     },
+    {
+        icon: <FiDownload size={24} color="#3884ff" />,
+        title: 'Subscription Payment Processed',
+        description: '$45',
+        id: '#08OFGK',
+        color: "#3884ff"
+    },
+    
 ];
 
 interface CampaignData {
@@ -122,13 +136,15 @@ interface CampaignData {
 
 const TransactionCampaign: React.FC = () => {
     const [campaigns, setCampaigns] = useState<CampaignData[]>([]);
+    const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+
 
     useEffect(() => {
         const fetchCampaigns = async () => {
             const data: CampaignData[] = [
                 {
                     title: "Mobile Banking",
-                    amount: "$2,992",
+                    amount: "OMR 2,992k",
                     percentageChange: "19%",
                     transactions: 1455,
                     lastMonth: "Last Month",
@@ -137,7 +153,7 @@ const TransactionCampaign: React.FC = () => {
                 },
                 {
                     title: "Internet Banking",
-                    amount: "$5,672",
+                    amount: "OMR 5,672k",
                     percentageChange: "12%",
                     transactions: 2350,
                     lastMonth: "Last Month",
@@ -148,7 +164,7 @@ const TransactionCampaign: React.FC = () => {
 
                 {
                     title: "MFK",
-                    amount: "$8,243",
+                    amount: "OMR 8,243k",
                     percentageChange: "25%",
                     transactions: 3255,
                     lastMonth: "Last Month",
@@ -157,7 +173,7 @@ const TransactionCampaign: React.FC = () => {
                 },
                 {
                     title: "CDM",
-                    amount: "$8,243",
+                    amount: "OMR 8,243k",
                     percentageChange: "25%",
                     transactions: 3255,
                     lastMonth: "Last Month",
@@ -179,7 +195,7 @@ const TransactionCampaign: React.FC = () => {
                             <Space>
                                 <Card
                                     style={{
-                                        width: 230,
+                                        width: 240,
                                         borderRadius: 10,
                                         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
                                         // flex:'0 1 calc(40% - 10px)',
@@ -190,7 +206,7 @@ const TransactionCampaign: React.FC = () => {
                                     <Row justify="space-between" align="middle">
                                         <Col className={style.cardTitle}>
                                             <Text>{campaign.icon}</Text>
-                                            <Text strong style={{ fontSize: 12 }}>
+                                            <Text strong style={{ fontSize: 12, marginLeft:5 }}>
                                                 {campaign.title}
                                             </Text>
                                         </Col>
@@ -248,30 +264,50 @@ const TransactionCampaign: React.FC = () => {
                             </div>
                             <div style={{ marginBottom: '20px', display: 'flex', justifyContent:"space-between" }}>
                                 <Text strong className={style.Legend}>
-                                    809<Text type="secondary">
-                                        <LuDot color="#5550cd" size={24} />Reward
+                                    <Text type="secondary">
+                                        <LuDot color="#5550cd" size={24} />Mobile Banking
                                     </Text>
                                 </Text>
                                 <Text strong className={style.Legend2}>
-                                    811<Text type="secondary">
-                                        <LuDot color="#6adddb" size={24} />Multi-Reward
+                                    <Text type="secondary">
+                                        <LuDot color="#6adddb" size={24} />Internet Banking
                                     </Text>
                                 </Text>
                                 <Text strong className={style.Legend2}>
-                                    611<Text type="secondary">
-                                        <LuDot color="#6adddb" size={24} />Non-Reward
+                                    <Text type="secondary">
+                                        <LuDot color="#6adddb" size={24} />MFK
+                                    </Text>
+                                </Text>
+                                <Text strong className={style.Legend2}>
+                                    <Text type="secondary">
+                                        <LuDot color="#6adddb" size={24} />CDM
                                     </Text>
                                 </Text>
                             </div>
-                            <ResponsiveContainer width="100%" height={210}>
-
-                                <PieChart >
-                                    <Tooltip  />
-                                    <Pie data={datapie} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={60} fill="#eadaa4" />
-                                    <Pie data={datapie} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={40} fill="#095179" />
-                                    <Pie data={datapie} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={80} outerRadius={100} fill="#dcc670" label />
-                                </PieChart>
-                            </ResponsiveContainer>
+                            <ResponsiveContainer width={'100%'} height={210} className={style.PieChart}>
+    <PieChart>
+        <Tooltip formatter={(value: number, name: string, props: any) =>
+            `${((value / datapie.reduce((acc, cur) => acc + cur.value, 0)) * 100).toFixed(2)}%`
+        } />
+        <Pie
+            data={datapie}
+            cx={210}
+            cy={115}
+            innerRadius={60}
+            outerRadius={80}
+            fill="#8884d8"
+            paddingAngle={5}
+            dataKey="value"
+            label={(entry) =>
+                `${((entry.value / datapie.reduce((acc, cur) => acc + cur.value, 0)) * 100).toFixed(2)}%`
+            }
+        >
+            {datapie.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+        </Pie>
+    </PieChart>
+</ResponsiveContainer>
                         </Card>
                     </div>
                 </div>
@@ -323,6 +359,7 @@ const TransactionCampaign: React.FC = () => {
                                 }}
                             >
                                 <Col>
+                                {area.image && <img src={area.image} alt={area.name} style={{  marginRight: '10px' }} />}
                                     <Text strong>{area.name}</Text>
                                 </Col>
                                 <Col>
@@ -336,7 +373,7 @@ const TransactionCampaign: React.FC = () => {
                             borderRadius: 10,
                             boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
                             marginTop: '20px',
-                            height: 440
+                            height: 490
                         }}>
                         <Row justify="space-between" align="middle" style={{ marginBottom: '20px' }}>
                             <Col>
@@ -374,17 +411,19 @@ const TransactionCampaign: React.FC = () => {
                             ))}
                         </div>
 
-                        <ResponsiveContainer width="100%" height={200}>
-                            <BarChart data={data2} layout="vertical" >
-                                <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-                                <XAxis type="number" domain={[0, 500]} />
-                                <YAxis hide={true} dataKey="" type="category" />
-                                <Tooltip />
-                                <Bar dataKey="value" fill="#eadaa4" radius={[0, 5, 5, 0]} />
-                                <Bar dataKey="value" fill="#eadaa4" radius={[0, 5, 5, 0]} />
-                                <Bar dataKey="value" fill="#dcc670" radius={[0, 5, 5, 0]} />
-                            </BarChart>
-                        </ResponsiveContainer>
+                       <ResponsiveContainer width="100%" height={210}>
+                                                  <BarChart data={data2} layout="horizontal">
+                                                      <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+                                                      <YAxis domain={[0, 500]} type="number" />
+                                                      <XAxis type="category" />
+                                                      <Tooltip />
+                                                      <Bar dataKey="value">
+                                                          {data2.map((entry, index) => (
+                                                              <Cell key={`bar-${index}`} fill={COLORS[index % COLORS.length]} />
+                                                          ))}
+                                                      </Bar>
+                                                  </BarChart>
+                                              </ResponsiveContainer>
                     </Card>
 
                 </div>

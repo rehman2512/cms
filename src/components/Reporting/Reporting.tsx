@@ -17,9 +17,7 @@ interface DataSource {
     EndTime: string;
     CampaignType: string;
     Status: string;
-    MinSpend: string;
-    MaxSpend: string;
-    Frequency: string;
+   
 }
 
 const MultiViewTable: React.FC = ({ }) => {
@@ -44,18 +42,18 @@ const MultiViewTable: React.FC = ({ }) => {
     };
 
     const dataSource: DataSource[] = [
-        { key: '1', CampaignName: 'National Day', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Product Campaign", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", },
-        { key: '2', CampaignName: 'Credit Card', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", },
-        { key: '3', CampaignName: 'Eid Celebrations', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", },
-        { key: '4', CampaignName: 'Product Campaign', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Channel Campaign", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", },
-        { key: '5', CampaignName: 'National Day', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Product Campaign", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", },
-        { key: '6', CampaignName: 'Credit Card', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", },
-        { key: '7', CampaignName: 'Eid Celebrations', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", },
-        { key: '8', CampaignName: 'Product Campaign', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Channel Campaign", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", },
-        { key: '9', CampaignName: 'National Day', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Product Campaign", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", },
-        { key: '10', CampaignName: 'Credit Card', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", },
-        { key: '11', CampaignName: 'Eid Celebrations', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", },
-        { key: '12', CampaignName: 'Product Campaign', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Channel Campaign", Status: "Active", MinSpend: "5", MaxSpend: "500", Frequency: "Repeat", },
+        { key: '1', CampaignName: 'National Day', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Product Campaign", Status: "Complete"},
+        { key: '2', CampaignName: 'Credit Card', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Complete"},
+        { key: '3', CampaignName: 'Eid Celebrations', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Complete", },
+        { key: '4', CampaignName: 'Product Campaign', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Channel Campaign", Status: "Complete" },
+        { key: '5', CampaignName: 'National Day', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Product Campaign", Status: "Complete",},
+        { key: '6', CampaignName: 'Credit Card', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Complete", },
+        { key: '7', CampaignName: 'Eid Celebrations', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Complete", },
+        { key: '8', CampaignName: 'Product Campaign', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Channel Campaign", Status: "Complete", },
+        { key: '9', CampaignName: 'National Day', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Product Campaign", Status: "Complete", },
+        { key: '10', CampaignName: 'Credit Card', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Complete" },
+        { key: '11', CampaignName: 'Eid Celebrations', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Complete",  },
+        { key: '12', CampaignName: 'Product Campaign', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Channel Campaign", Status: "Complete",},
     ];
 
     const Addhandle = () => {
@@ -77,8 +75,18 @@ const MultiViewTable: React.FC = ({ }) => {
 
     const handleExport = () => {
         const data = [
-            { Name: "John Doe", Age: 30, Address: "123 Main St" },
-            { Name: "Jane Smith", Age: 25, Address: "456 Maple Ave" },
+            { key: '1', CampaignName: 'National Day', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Product Campaign", Status: "Complete"},
+            { key: '2', CampaignName: 'Credit Card', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Complete"},
+            { key: '3', CampaignName: 'Eid Celebrations', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Complete", },
+            { key: '4', CampaignName: 'Product Campaign', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Channel Campaign", Status: "Complete" },
+            { key: '5', CampaignName: 'National Day', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Product Campaign", Status: "Complete",},
+            { key: '6', CampaignName: 'Credit Card', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Complete", },
+            { key: '7', CampaignName: 'Eid Celebrations', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Complete", },
+            { key: '8', CampaignName: 'Product Campaign', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Channel Campaign", Status: "Complete", },
+            { key: '9', CampaignName: 'National Day', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Product Campaign", Status: "Complete", },
+            { key: '10', CampaignName: 'Credit Card', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Complete" },
+            { key: '11', CampaignName: 'Eid Celebrations', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Transaction Campaign", Status: "Complete",  },
+            { key: '12', CampaignName: 'Product Campaign', StartTime: '18/8/2024', EndTime: "20/8/2024", CampaignType: "Channel Campaign", Status: "Complete",},
         ];
 
         const worksheet = XLSX.utils.json_to_sheet(data);
@@ -140,34 +148,14 @@ const MultiViewTable: React.FC = ({ }) => {
                 </Tag>
             ),
         },
-        {
-            title: 'Min Spend',
-            dataIndex: 'MinSpend',
-            key: 'MinSpend',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.MinSpend.localeCompare(b.MinSpend),
-        },
-        {
-            title: 'Max Spend',
-            dataIndex: 'MaxSpend',
-            key: 'MaxSpend',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.MaxSpend.localeCompare(b.MaxSpend),
-        },
-        {
-            title: 'Frequency',
-            dataIndex: 'Frequency',
-            key: 'Frequency',
-            width: 100,
-            sorter: (a: DataSource, b: DataSource) => a.Frequency.localeCompare(b.Frequency),
-        },
+     
      
         {
             title: 'Action',
             key: 'action',
             fixed: 'right' as const,
             width: 50,
-            render: () => <Button onClick={handleExport}>Export</Button>
+            render: () => <Button onClick={handleExport} style={{backgroundColor:"#095179",color:"#ffff"}}>Export</Button>
         },
     ];
 
@@ -178,10 +166,7 @@ const MultiViewTable: React.FC = ({ }) => {
         item.CampaignName.toLowerCase().includes(searchText) ||
         item.EndTime.toLowerCase().includes(searchText) ||
         item.CampaignType.toLowerCase().includes(searchText) ||
-        item.Status.toLowerCase().includes(searchText) ||
-        item.MinSpend.toLowerCase().includes(searchText) ||
-        item.MaxSpend.toLowerCase().includes(searchText) ||
-        item.Frequency.toLowerCase().includes(searchText) 
+        item.Status.toLowerCase().includes(searchText) 
     );
 
     const items = [

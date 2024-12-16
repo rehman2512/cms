@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import style from './BillPayment.module.css';
-import { Table, Input, Pagination, Space, Dropdown, Checkbox, Tag, message, Upload, Button } from 'antd';
+import { Table, Input, Pagination, Space, Dropdown, Checkbox, Tag, message, Button } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
-import { CiMenuKebab, CiFilter, CiSearch } from 'react-icons/ci';
-import ButtonP from '../Basic/button';
+import {  CiFilter, CiSearch } from 'react-icons/ci';
 import FormModal from '../Modal/FormModal';
 import Features from '../Features/Features'
 import Image from '../../Images/profile_image.png'
 import * as XLSX from 'xlsx';
-import { CiImport, CiExport } from "react-icons/ci";
+import {  CiExport } from "react-icons/ci";
 
 
 
@@ -48,21 +47,22 @@ const MultiViewTable: React.FC = ({ }) => {
     };
 
     const dataSource: DataSource[] = [
-        { key: '1', TransactionID: 'EXG4545FR01', Type: 'Mobile Banking', From: "20/8/2024", To: "5", Status: "Complete", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '2', TransactionID: 'EXG4545FR02', Type: 'Credit Card', From: "20/8/2024", To: "5", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '3', TransactionID: 'EXG4545FR01', Type: 'Debit Card', From: "20/8/2024", To: "5   ", Status: "In Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '4', TransactionID: 'EXG4545FR02', Type: 'Debit Card', From: "20/8/2024", To: "5", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '5', TransactionID: 'EXG4545FR01', Type: 'Debit Card', From: "20/8/2024", To: "5", Status: "Pending", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '6', TransactionID: 'EXG4545FR02', Type: 'Credit Card', From: "20/8/2024", To: "5", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '7', TransactionID: 'EXG4545FR01', Type: 'Branch', From: "20/8/2024", To: "5", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '8', TransactionID: 'EXG4545FR02', Type: 'Branch', From: "20/8/2024", To: "5", Status: "In Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '9', TransactionID: 'EXG4545FR01', Type: 'Credit Card', From: "20/8/2024", To: "5", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '10', TransactionID: 'EXG4545FR02', Type: 'Mobile Banking', From: "20/8/2024", To: "5", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '11', TransactionID: 'EXG4545FR01', Type: 'Mobile Banking', From: "20/8/2024", To: "5", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '12', TransactionID: 'EXG4545FR02', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '13', TransactionID: 'EXG4545FR01', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '14', TransactionID: 'EXG4545FR02', Type: '18/8/2024', From: "20/8/2024", To: "5", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '1', TransactionID: 'EXG4545FR01', Type: 'Mobile Banking', From: "***12345", To: "***67890", Status: "Complete", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '2', TransactionID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '3', TransactionID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "In Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '4', TransactionID: 'EXG4545FR02', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '5', TransactionID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '6', TransactionID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '7', TransactionID: 'EXG4545FR01', Type: 'Branch', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '8', TransactionID: 'EXG4545FR02', Type: 'Branch', From: "***12345", To: "***67890", Status: "In Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '9', TransactionID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '10', TransactionID: 'EXG4545FR02', Type: 'Mobile Banking', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '11', TransactionID: 'EXG4545FR01', Type: 'Mobile Banking', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '12', TransactionID: 'EXG4545FR02', Type: '18/8/2024', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '13', TransactionID: 'EXG4545FR01', Type: '18/8/2024', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '14', TransactionID: 'EXG4545FR02', Type: '18/8/2024', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
     ];
+    
 
     const Addhandle = () => {
         setShowForm(true);
@@ -320,8 +320,20 @@ const MultiViewTable: React.FC = ({ }) => {
 
     const handleExport = () => {
         const data = [
-            { Name: "John Doe", Age: 30, Address: "123 Main St" },
-            { Name: "Jane Smith", Age: 25, Address: "456 Maple Ave" },
+            { key: '1', TransactionID: 'EXG4545FR01', Type: 'Mobile Banking', From: "***12345", To: "***67890", Status: "Complete", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+            { key: '2', TransactionID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+            { key: '3', TransactionID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "In Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+            { key: '4', TransactionID: 'EXG4545FR02', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+            { key: '5', TransactionID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+            { key: '6', TransactionID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+            { key: '7', TransactionID: 'EXG4545FR01', Type: 'Branch', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+            { key: '8', TransactionID: 'EXG4545FR02', Type: 'Branch', From: "***12345", To: "***67890", Status: "In Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+            { key: '9', TransactionID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+            { key: '10', TransactionID: 'EXG4545FR02', Type: 'Mobile Banking', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+            { key: '11', TransactionID: 'EXG4545FR01', Type: 'Mobile Banking', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+            { key: '12', TransactionID: 'EXG4545FR02', Type: '18/8/2024', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+            { key: '13', TransactionID: 'EXG4545FR01', Type: '18/8/2024', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+            { key: '14', TransactionID: 'EXG4545FR02', Type: '18/8/2024', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
         ];
 
         const worksheet = XLSX.utils.json_to_sheet(data);
@@ -347,11 +359,6 @@ const MultiViewTable: React.FC = ({ }) => {
         reader.readAsBinaryString(file);
 
         return false; // Prevent default upload behavior
-    };
-
-    const uploadProps = {
-        beforeUpload: handleUpload,
-        accept: ".xlsx,.csv",
     };
 
 
