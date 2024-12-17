@@ -122,7 +122,7 @@ const Sider: React.FC = () => {
             children: [
                 { key: 'Role', label: 'Role' },
                 { key: 'User', label: 'User' },
-                { key: 'Group', label: 'User Group' },
+                // { key: 'Group', label: 'User Group' },
             ],
         },
     ];

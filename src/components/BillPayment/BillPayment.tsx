@@ -22,7 +22,6 @@ interface DataSource {
     Time: string;
     Amount: string;
     Name: string;
-    ImageSrc: string;
 }
 
 const MultiViewTable: React.FC = ({ }) => {
@@ -47,21 +46,22 @@ const MultiViewTable: React.FC = ({ }) => {
     };
 
     const dataSource: DataSource[] = [
-        { key: '1', TransactionID: 'EXG4545FR01', Type: 'Mobile Banking', From: "***12345", To: "***67890", Status: "Complete", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '2', TransactionID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '3', TransactionID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "In Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '4', TransactionID: 'EXG4545FR02', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '5', TransactionID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '6', TransactionID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '7', TransactionID: 'EXG4545FR01', Type: 'Branch', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '8', TransactionID: 'EXG4545FR02', Type: 'Branch', From: "***12345", To: "***67890", Status: "In Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '9', TransactionID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '10', TransactionID: 'EXG4545FR02', Type: 'Mobile Banking', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '11', TransactionID: 'EXG4545FR01', Type: 'Mobile Banking', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '12', TransactionID: 'EXG4545FR02', Type: '18/8/2024', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '13', TransactionID: 'EXG4545FR01', Type: '18/8/2024', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
-        { key: '14', TransactionID: 'EXG4545FR02', Type: '18/8/2024', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:03", Amount: "500", Name: "John", ImageSrc: Image },
+        { key: '1', TransactionID: 'EXG4545FR01', Type: 'Mobile Banking', From: "***12345", To: "***67890", Status: "Complete", Date: "12/8/2024", Time: "12:03", Amount: "OMR 500", Name: "Ahmed Al-Muqbali" },
+        { key: '2', TransactionID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:04", Amount: "OMR 500", Name: "Salim Al-Rashdi" },
+        { key: '3', TransactionID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "In Active", Date: "12/8/2024", Time: "12:05", Amount: "OMR 500", Name: "Mubarak Al-Balushi" },
+        { key: '4', TransactionID: 'EXG4545FR02', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:06", Amount: "OMR 500", Name: "Said Al-Harthy" },
+        { key: '5', TransactionID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/8/2024", Time: "12:07", Amount: "OMR 500", Name: "Fatima Al-Kharusi" },
+        { key: '6', TransactionID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:08", Amount: "OMR 500", Name: "Amna Al-Hinai" },
+        { key: '7', TransactionID: 'EXG4545FR01', Type: 'Branch', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:09", Amount: "OMR 500", Name: "Ali Al-Saadi" },
+        { key: '8', TransactionID: 'EXG4545FR02', Type: 'Branch', From: "***12345", To: "***67890", Status: "In Active", Date: "12/8/2024", Time: "12:10", Amount: "OMR 500", Name: "Hassan Al-Lawati" },
+        { key: '9', TransactionID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:11", Amount: "OMR 500", Name: "Aisha Al-Zadjali" },
+        { key: '10', TransactionID: 'EXG4545FR02', Type: 'Mobile Banking', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:12", Amount: "OMR 500", Name: "Ibrahim Al-Nabhani" },
+        { key: '11', TransactionID: 'EXG4545FR01', Type: 'Mobile Banking', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:13", Amount: "OMR 500", Name: "Khalid Al-Maskari" },
+        { key: '12', TransactionID: 'EXG4545FR02', Type: '18/8/2024', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:14", Amount: "OMR 500", Name: "Zainab Al-Siyabi" },
+        { key: '13', TransactionID: 'EXG4545FR01', Type: '18/8/2024', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:15", Amount: "OMR 500", Name: "Nadia Al-Farsi" },
+        { key: '14', TransactionID: 'EXG4545FR02', Type: '18/8/2024', From: "***12345", To: "***67890", Status: "Active", Date: "12/8/2024", Time: "12:16", Amount: "OMR 500", Name: "Sultan Al-Habsi" },
     ];
+    
     
 
     const Addhandle = () => {
@@ -141,16 +141,7 @@ const MultiViewTable: React.FC = ({ }) => {
             key: 'Name',
             width: 100,
             sorter: (a: DataSource, b: DataSource) => a.Name.localeCompare(b.Name),
-            render: (text: string, record: DataSource) => (
-                <Space>
-                    <img
-                        src={record.ImageSrc}
-                        alt={''}
-                        style={{ width: 30, height: 30, borderRadius: '50%' }}
-                    />
-                    <span>{text}</span>
-                </Space>
-            ),
+            
         },
         {
             title: 'Status',

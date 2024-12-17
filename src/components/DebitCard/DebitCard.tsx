@@ -24,7 +24,6 @@ interface DataSource {
     Amount: string;
     CardHolderName: string;
     From : string;
-    ImageSrc: string;
 }
 
 const MultiViewTable: React.FC = ({ }) => {
@@ -49,21 +48,22 @@ const MultiViewTable: React.FC = ({ }) => {
     };
 
     const dataSource: DataSource[] = [
-        { key: '1', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***10", To: "***21", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '2', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***6", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '3', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Pending", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '4', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '5', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Pending", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '6', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '7', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '8', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Pending", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '9', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '10', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '11', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '12', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '13', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
-        { key: '14', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "500", CardHolderName: "Fahad", ImageSrc: Image },
+        { key: '1', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***10", To: "***21", Status: "Complete", Date: "12/12/2024", Time: "12:00", Amount: "OMR 500", CardHolderName: "Ahmed Al-Habsi" },
+        { key: '2', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***6", Status: "Complete", Date: "12/12/2024", Time: "12:01", Amount: "OMR 500", CardHolderName: "Fatima Al-Harthy" },
+        { key: '3', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Pending", Date: "12/12/2024", Time: "12:02", Amount: "OMR 500", CardHolderName: "Salim Al-Balushi" },
+        { key: '4', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:03", Amount: "OMR 500", CardHolderName: "Mubarak Al-Lawati" },
+        { key: '5', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Pending", Date: "12/12/2024", Time: "12:04", Amount: "OMR 500", CardHolderName: "Aisha Al-Nabhani" },
+        { key: '6', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:05", Amount: "OMR 500", CardHolderName: "Khalid Al-Saadi" },
+        { key: '7', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:06", Amount: "OMR 500", CardHolderName: "Amna Al-Rashdi" },
+        { key: '8', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Pending", Date: "12/12/2024", Time: "12:07", Amount: "OMR 500", CardHolderName: "Hassan Al-Farsi" },
+        { key: '9', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:08", Amount: "OMR 500", CardHolderName: "Sultan Al-Kharusi" },
+        { key: '10', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:09", Amount: "OMR 500", CardHolderName: "Fatima Al-Maskari" },
+        { key: '11', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:10", Amount: "OMR 500", CardHolderName: "Ahmed Al-Zadjali" },
+        { key: '12', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:11", Amount: "OMR 500", CardHolderName: "Amina Al-Lawati" },
+        { key: '13', DebitCardID: '***4545FR01', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:12", Amount: "OMR 500", CardHolderName: "Zainab Al-Hinai" },
+        { key: '14', DebitCardID: '***4545FR02', CardType: 'MasterCard', TransactionID: "31452145", From: "***5", To: "***5", Status: "Complete", Date: "12/12/2024", Time: "12:13", Amount: "OMR 500", CardHolderName: "Said Al-Siyabi" },
     ];
+    
 
     const Addhandle = () => {
         setShowForm(true);
@@ -149,16 +149,7 @@ const MultiViewTable: React.FC = ({ }) => {
             key: 'CardHolderName',
             width: 150,
             sorter: (a: DataSource, b: DataSource) => a.CardHolderName.localeCompare(b.CardHolderName),
-            render: (text: string, record: DataSource) => (
-                <Space>
-                    <img
-                        src={record.ImageSrc}
-                        alt={''}
-                        style={{ width: 30, height: 30, borderRadius: '50%' }}
-                    />
-                    <span>{text}</span>
-                </Space>
-            ),
+           
         },
         {
             title: 'Status',

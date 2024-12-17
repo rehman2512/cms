@@ -47,20 +47,20 @@ const MultiViewTable: React.FC = ({ }) => {
     };
 
     const dataSource: DataSource[] = [
-        { key: '1', TransferID: 'EXG4545FR01', Type: 'Online', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Ali Al-Balushi" },
-        { key: '2', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Said Al-Lawati" },
-        { key: '3', TransferID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Fatima Al-Muqbali" },
-        { key: '4', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Khalid Al-Farsi" },
-        { key: '5', TransferID: 'EXG4545FR01', Type: 'Branch', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Mariam Al-Kindi" },
-        { key: '6', TransferID: 'EXG4545FR02', Type: 'Online', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Hassan Al-Harthy" },
-        { key: '7', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Nadia Al-Rashdi" },
-        { key: '8', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Ahmed Al-Saadi" },
-        { key: '9', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Amina Al-Hinai" },
-        { key: '10', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Mohammed Al-Shukaili" },
-        { key: '11', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Layla Al-Nabhani" },
-        { key: '12', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Salim Al-Manji" },
-        { key: '13', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Samira Al-Jabri" },
-        { key: '14', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Zaid Al-Habsi" },
+        { key: '1', TransferID: 'EXG4545FR01', Type: 'Online', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "10:15", Amount: "OMR 1500", Name: "Ali Al-Balushi" },
+        { key: '2', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "11:00", Amount: "OMR 2000", Name: "Said Al-Lawati" },
+        { key: '3', TransferID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "OMR 500", Name: "Fatima Al-Muqbali" },
+        { key: '4', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "13:45", Amount: "OMR 1200", Name: "Khalid Al-Farsi" },
+        { key: '5', TransferID: 'EXG4545FR01', Type: 'Branch', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "14:20", Amount: "OMR 800", Name: "Mariam Al-Kindi" },
+        { key: '6', TransferID: 'EXG4545FR02', Type: 'Online', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "15:10", Amount: "OMR 2500", Name: "Hassan Al-Harthy" },
+        { key: '7', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "16:45", Amount: "OMR 1000", Name: "Nadia Al-Rashdi" },
+        { key: '8', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "17:30", Amount: "OMR 900", Name: "Ahmed Al-Saadi" },
+        { key: '9', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "18:15", Amount: "OMR 1800", Name: "Amina Al-Hinai" },
+        { key: '10', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "19:00", Amount: "OMR 2200", Name: "Mohammed Al-Shukaili" },
+        { key: '11', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "20:30", Amount: "OMR 750", Name: "Layla Al-Nabhani" },
+        { key: '12', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "21:10", Amount: "OMR 3000", Name: "Salim Al-Manji" },
+        { key: '13', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "22:00", Amount: "OMR 400", Name: "Samira Al-Jabri" },
+        { key: '14', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "23:15", Amount: "OMR 2700", Name: "Zaid Al-Habsi" },
     ];
     
     
@@ -140,7 +140,7 @@ const MultiViewTable: React.FC = ({ }) => {
             title: 'Name',
             dataIndex: 'Name',
             key: 'Name',
-            width: 100,
+            width: 150, 
             sorter: (a: DataSource, b: DataSource) => a.Name.localeCompare(b.Name),
             
         },
