@@ -353,7 +353,7 @@ const MultiViewTable: React.FC = ({ }) => {
                                 <Input
                                     placeholder="Search..."
                                     prefix={<CiSearch size={20} />}
-                                    suffix={<CiFilter size={20} className={style.filterIcon} />}
+                                    // suffix={<CiFilter size={20} className={style.filterIcon} />}
                                     onChange={(e) => onSearch(e.target.value)}
                                     style={{ width: 200 }}
                                     className={style.inputSearch}

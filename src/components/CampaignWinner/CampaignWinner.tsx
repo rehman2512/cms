@@ -28,6 +28,7 @@ interface DataSource {
   MinSpend: string;
   MaxSpend: string;
   Frequency: string;
+  CampaignType: string;
 }
 // Define the campaign details type
 const campaignDetails = {
@@ -61,7 +62,7 @@ const LuckyDrawScreen: React.FC = () => {
   const [spinning, setSpinning] = useState(false);
   const [boom, setBoom] = useState(false);
   const [searchText, setSearchText] = useState<string>('');
-  const [selectedColumns, setSelectedColumns] = useState<string[]>(['CampaignName', 'StartTime', 'EndTime', 'Price', 'Status', 'MinSpend', 'MaxSpend', 'Frequency', 'Platform']);
+  const [selectedColumns, setSelectedColumns] = useState<string[]>(['CampaignName', 'StartTime', 'EndTime', 'Price', 'Status', 'MinSpend', 'MaxSpend', 'Frequency', 'Platform' ,'CampaignType']);
 
       const [currentPage, setCurrentPage] = useState<number>(1);
       const [pageSize, setPageSize] = useState<number>(9);
@@ -73,19 +74,18 @@ const LuckyDrawScreen: React.FC = () => {
       const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
       const [currentRowKey, setCurrentRowKey] = useState<string | null>(null);
       const [dataSource, setDataSource] = useState<DataSource[]>([
-          { key: '1', CampaignName: 'National Day', StartTime: '18/11/2024', EndTime: "23/11/2024",  Status: "Approved", MinSpend: "50", MaxSpend: "500", Frequency: "Recurring", },
-          { key: '2', CampaignName: 'New Year', StartTime: '1/9/2024', EndTime: "20/9/2024",  Status: "Decline", MinSpend: "75", MaxSpend: "500", Frequency: "Recurring", },
-          { key: '3', CampaignName: 'Eid Celebration', StartTime: '18/7/2024', EndTime: "20/7/2024",  Status: "Pending", MinSpend: "100", MaxSpend: "500", Frequency: "Once", },
-          { key: '4', CampaignName: 'Mid Year', StartTime: '01/6/2024', EndTime: "30/6/2024",  Status: "Approved", MinSpend: "500", MaxSpend: "1000", Frequency: "Once", },
-          { key: '6', CampaignName: 'Eid Celebration', StartTime: '10/4/2024', EndTime: "13/4/2024",  Status: "Pending", MinSpend: "50", MaxSpend: "500", Frequency: "Recurring", },
-          { key: '5', CampaignName: 'Ramzan Kareem', StartTime: '10/3/2024', EndTime: "10/4/2024",  Status: "Decline", MinSpend: "30", MaxSpend: "400", Frequency: "Once", },
-          { key: '7', CampaignName: 'New Year', StartTime: '01/1/2024', EndTime: "30/1/2024",  Status: "Approved", MinSpend: "150", MaxSpend: "350", Frequency: "Once", },
-          { key: '8', CampaignName: 'New Year', StartTime: '01/1/2024', EndTime: "30/1/2024",  Status: "Pending", MinSpend: "200", MaxSpend: "450", Frequency: "Recurring", },
-          { key: '9', CampaignName: 'Spend & Win', StartTime: '01/9/2023', EndTime: "30/9/2023",  Status: "Hold", MinSpend: "15", MaxSpend: "250", Frequency: "Recurring", },
-          { key: '10', CampaignName: 'Eid ul Adha', StartTime: '15/8/2023', EndTime: "21/8/2023",  Status: "Pending", MinSpend: "200", MaxSpend: "1500", Frequency: "Once", },
-          { key: '11', CampaignName: 'Spend & Win', StartTime: '01/2/2023', EndTime: "01/3/2023",  Status: "Pending", MinSpend: "300", MaxSpend: "3000", Frequency: "Once", },
+          { key: '1', CampaignName: 'National Day',CampaignType:"Transaction Campaign", StartTime: '18/11/2024', EndTime: "23/11/2024",  Status: "Completed", MinSpend: "50", MaxSpend: "500", Frequency: "Recurring", },
+          { key: '2', CampaignName: 'New Year',CampaignType:"Channel Campaign", StartTime: '1/9/2024', EndTime: "20/9/2024",  Status: "Completed", MinSpend: "75", MaxSpend: "500", Frequency: "Recurring", },
+          { key: '3', CampaignName: 'Eid Celebration',CampaignType:"Product Campaign",  StartTime: '18/7/2024', EndTime: "20/7/2024",  Status: "Completed", MinSpend: "100", MaxSpend: "500", Frequency: "Once", },
+          { key: '4', CampaignName: 'Mid Year', CampaignType:"Product Campaign", StartTime: '01/6/2024', EndTime: "30/6/2024",  Status: "Completed", MinSpend: "500", MaxSpend: "1000", Frequency: "Once", },
+          { key: '6', CampaignName: 'Eid Celebration',CampaignType:"Channel Campaign",  StartTime: '10/4/2024', EndTime: "13/4/2024",  Status: "Completed", MinSpend: "50", MaxSpend: "500", Frequency: "Recurring", },
+          { key: '5', CampaignName: 'Ramzan Kareem', CampaignType:"Transaction Campaign", StartTime: '10/3/2024', EndTime: "10/4/2024",  Status: "Completed", MinSpend: "30", MaxSpend: "400", Frequency: "Once", },
+          { key: '7', CampaignName: 'New Year', CampaignType:"Product Campaign", StartTime: '01/1/2024', EndTime: "30/1/2024",  Status: "Completed", MinSpend: "150", MaxSpend: "350", Frequency: "Once", },
+          { key: '8', CampaignName: 'New Year',CampaignType:"Transaction Campaign",  StartTime: '01/1/2024', EndTime: "30/1/2024",  Status: "Completed", MinSpend: "200", MaxSpend: "450", Frequency: "Recurring", },
+          { key: '9', CampaignName: 'Spend & Win', CampaignType:"Transaction Campaign", StartTime: '01/9/2023', EndTime: "30/9/2023",  Status: "Completed", MinSpend: "15", MaxSpend: "250", Frequency: "Recurring", },
+          { key: '10', CampaignName: 'Eid ul Adha',CampaignType:"Channel Campaign",  StartTime: '15/8/2023', EndTime: "21/8/2023",  Status: "Completed", MinSpend: "200", MaxSpend: "1500", Frequency: "Once", },
+          { key: '11', CampaignName: 'Spend & Win', CampaignType:"Channel Campaign", StartTime: '01/2/2023', EndTime: "01/3/2023",  Status: "Completed", MinSpend: "300", MaxSpend: "3000", Frequency: "Once", },
   
-          // ...other data entries
       ])
   
       const onSearch = (value: string) => setSearchText(value.toLowerCase());
@@ -159,6 +159,14 @@ const LuckyDrawScreen: React.FC = () => {
 
     },
     {
+      title: 'Campaign Type',
+      dataIndex: 'CampaignType',
+      key: 'CampaignType',
+      width: 200,
+      sorter: (a: DataSource, b: DataSource) => a.CampaignName.localeCompare(b.CampaignName),
+
+    },
+    {
       title: 'Start Time',
       dataIndex: 'StartTime',
       key: 'StartTime',
@@ -180,7 +188,7 @@ const LuckyDrawScreen: React.FC = () => {
       width: 100,
       sorter: (a: DataSource, b: DataSource) => a.Status.localeCompare(b.Status),
       render: (Status: string) => {
-        const Color = Status === 'Pending' ? 'yellow' : Status === 'Approved' ? 'green' : 'red';
+        const Color = Status === 'Pending' ? 'yellow' : Status === 'Completed' ? 'green' : 'red';
         return (
           <Tag style={{ marginInlineEnd: 0 }} color={Color}>
             {Status.toUpperCase()}
@@ -218,9 +226,9 @@ const LuckyDrawScreen: React.FC = () => {
       render: (_: any, record: DataSource) => (
          <Button onClick={() => {
           const campaignType: CampaignType =
-            record.CampaignName.includes('Transaction')
+            record.CampaignType.includes('Transaction Campaign')
               ? 'Transaction'
-              : record.CampaignName.includes('Product')
+              : record.CampaignType.includes('Product Campaign')
               ? 'Product'
               : 'Channel';
           handleCampaignSelection(campaignType);
@@ -328,6 +336,19 @@ const LuckyDrawScreen: React.FC = () => {
               ),
               key: '9',
           },
+          {
+            label: (
+                <Checkbox
+                    checked={selectedColumns.includes('CampaignType')}
+                    value={'CampaignType'}
+                    onChange={(e) => handleCheckboxChange(e.target.checked, 'CampaignType')}
+                >
+                    Campaign Type
+                </Checkbox>
+            ),
+            key: '10',
+        },
+          
           
       ];
 
@@ -374,7 +395,7 @@ const LuckyDrawScreen: React.FC = () => {
               <img src={LuckyDraw} alt="Lucky Draw" className={styles.winnerImage} />
             </div>
           </div>
-          <div className="row">
+          <div className="row ">
             <div className={`col-lg-7 ${styles.WinnerAnnauce}`}>
               <div className={styles.imagewinner}>
                 <img src={LuckyImage} width={100} alt="Winner" />
@@ -395,11 +416,49 @@ const LuckyDrawScreen: React.FC = () => {
             </div>
             <div className={`col-lg-4 ${styles.Amount}`}>
               <h6>Winner</h6>
-              <h1>{campaignDetails[activeCampaign].prize}</h1>
+              <h1>OMR 5000</h1>
               <h2>Current Month</h2>
             </div>
           </div>
-          <div className={`row ${styles.LastwinnerContainer}`}>
+          <div className="row mt-3">
+            <div className={`col-lg-7 ${styles.WinnerAnnauce2nd}`}>
+              <div className={styles.imagewinner}>
+                <img src={Sheikh} width={60} alt="Winner" />
+                <span className="mx-3">
+                  <h4>SHEIKH FAHAD</h4>
+                  <h6>{campaignDetails[activeCampaign].location}</h6>
+                </span>
+              </div>
+              <div className={styles.imageContent}>
+              
+              </div>
+            </div>
+            <div className={`col-lg-4 ${styles.Amount}`}>
+              <h6>2nd Winner</h6>
+              <h1>OMR 3000</h1>
+            </div>
+          </div>
+          <div className="row mt-3">
+            <div className={`col-lg-7 ${styles.WinnerAnnauce2nd}`}>
+              <div className={styles.imagewinner}>
+                <img src={Sheikh1} width={60} alt="Winner" />
+                <span className="mx-3">
+                  <h4>SHEIKH FAHAD</h4>
+                  <h6>{campaignDetails[activeCampaign].location}</h6>
+                </span>
+              </div>
+              <div className={styles.imageContent}>
+              
+              </div>
+            </div>
+            <div className={`col-lg-4 ${styles.Amount}`}>
+              <h6>3rd Winner</h6>
+              <h1>OMR 2000</h1>
+            </div>
+          </div>
+
+
+          {/* <div className={`row ${styles.LastwinnerContainer}`}>
             <h6>Last Month Winner's</h6>
             <div className={`col-lg-12 ${styles.colLastMnth}`}>
               {lastMonthWinners.map((winner, index) => (
@@ -412,12 +471,12 @@ const LuckyDrawScreen: React.FC = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       ) : (
         <>
         <div className={styles.Route}>
-            <h5>Campaign List</h5>
+            <h5>Campaign Winner's</h5>
             <div className={styles.btns}>
 
                 
@@ -429,7 +488,7 @@ const LuckyDrawScreen: React.FC = () => {
                     <Input
                         placeholder="Search..."
                         prefix={<CiSearch size={20} />}
-                        suffix={<CiFilter size={20} className={styles.filterIcon} />}
+                        // suffix={<CiFilter size={20} className={styles.filterIcon} />}
                         onChange={(e) => onSearch(e.target.value)}
                         style={{ width: 200 }}
                         className={styles.inputSearch}

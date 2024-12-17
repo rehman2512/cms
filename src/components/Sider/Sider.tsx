@@ -232,7 +232,6 @@ const Sider: React.FC = () => {
                                 {typeof isView === 'object' && isView.key === 'Campaign_Management' && <PersonalInfo />}
                                 {typeof isView === 'object' && isView.key === 'Dashboard' && <Dashboard />}
                                 {typeof isView === 'object' && isView.key === 'Transfer' && <Transfer />}
-                                {typeof isView === 'object' && isView.key === 'Transfer' && <Transfer />}
                                 {typeof isView === 'object' && isView.key === 'CampaignWinner' && <CampaignWinner />}
                                 {typeof isView === 'object' && isView.key === 'BillPaymentTransaction' && <BillPayment />}
                                 {typeof isView === 'object' && isView.key === 'CreditCard' && <CreditCard />}

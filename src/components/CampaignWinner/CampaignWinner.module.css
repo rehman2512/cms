@@ -3,7 +3,12 @@
     height: 85vh;
     overflow-y: scroll;
 }
+.container2{
+    height: 85vh;
 
+    overflow-y: scroll;
+
+}
 .winner {
     padding: 25px;
     border-radius: 10px;
@@ -70,6 +75,14 @@
 }
 
 .WinnerAnnauce {
+    background-color: #ffff;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 25px;
+}
+.WinnerAnnauce2nd{
     background-color: #ffff;
     margin-left: 15px;
     display: flex;

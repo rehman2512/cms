@@ -58,7 +58,6 @@ const transactions = [
     {
         icon: <GrAtm size={24} color="#3fd0c9" />,
         title: 'ATM Withdrawal Processed',
-        description: '$200',
         id: '#12OQKL',
         color: "#3884ff"
 
@@ -74,7 +73,6 @@ const transactions = [
     {
         icon: <LuBox size={24} color="#3884ff" />,
         title: 'Funds Transfer Successful',
-        description: '$500',
         id: '#01QAMB',
         color: "#3884ff"
 
@@ -82,7 +80,6 @@ const transactions = [
     {
         icon: <FiDownload size={24} color="#7161ef" />,
         title: 'Mobile Recharge Processed',
-        description: '$30',
         id: '#08OMLB',
         color: "#3884ff"
 
@@ -98,7 +95,6 @@ const transactions = [
     {
         icon: <MdOutlineCancel size={24} color="#ff758c" />,
         title: 'Electricity Bill Payment Confirmed',
-        description: '$75',
         id: '#20ITHP',
         color: "#3884ff"
 
@@ -106,7 +102,12 @@ const transactions = [
     {
         icon: <FiDownload size={24} color="#3884ff" />,
         title: 'Subscription Payment Processed',
-        description: '$45',
+        id: '#08OFGK',
+        color: "#3884ff"
+    },
+    {
+        icon: <FiDownload size={24} color="#3884ff" />,
+        title: 'Subscription Payment Processed',
         id: '#08OFGK',
         color: "#3884ff"
     },
@@ -405,12 +406,18 @@ const TransactionCampaign: React.FC = () => {
                                 </Row>
                             ))}
                         </div>
-
-                        <ResponsiveContainer width="100%" height={210}>
+<ResponsiveContainer width="100%" height={225}>
     <BarChart data={data2} layout="horizontal">
         <CartesianGrid strokeDasharray="3 3" horizontal={false} />
         <YAxis domain={[0, 500]} type="number" />
-        <XAxis type="category" />
+        <XAxis 
+            type="category" 
+            dataKey="name" 
+            angle={-45} 
+            textAnchor="end"
+            fontSize={12}
+            height={70} // Increase height for better spacing
+        />
         <Tooltip />
         <Bar dataKey="value">
             {data2.map((entry, index) => (

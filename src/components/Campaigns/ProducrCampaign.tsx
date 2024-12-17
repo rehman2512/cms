@@ -407,19 +407,26 @@ const TransactionCampaign: React.FC = () => {
                                 </Row>
                             ))}
                         </div>
-    <ResponsiveContainer width="100%" height={210}>
-                                <BarChart data={data2} layout="horizontal">
-                                    <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-                                    <YAxis domain={[0, 500]} type="number" dataKey='name' />
-                                    <XAxis type="category" dataKey='name' />
-                                    <Tooltip />
-                                    <Bar dataKey="value">
-                                        {data2.map((entry, index) => (
-                                            <Cell key={`bar-${index}`} fill={COLORS[index % COLORS.length]} />
-                                        ))}
-                                    </Bar>
-                                </BarChart>
-                            </ResponsiveContainer>
+    <ResponsiveContainer width="100%" height={225}>
+        <BarChart data={data2} layout="horizontal">
+            <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+            <YAxis domain={[0, 500]} type="number" />
+            <XAxis 
+                type="category" 
+                dataKey="name" 
+                angle={-45} 
+                textAnchor="end"
+                fontSize={12}
+                height={70} // Increase height for better spacing
+            />
+            <Tooltip />
+            <Bar dataKey="value">
+                {data2.map((entry, index) => (
+                    <Cell key={`bar-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+            </Bar>
+        </BarChart>
+    </ResponsiveContainer>
                     </Card>
 
                 </div>

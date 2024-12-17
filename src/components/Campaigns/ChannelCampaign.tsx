@@ -44,11 +44,10 @@ const areas = [
 ];
 
 const data2 = [
-    { name: 'Shopee', value: 310, color: '#000000', icon: <LuDot size={24} color='#3884ff' /> },
-    { name: 'Tokopedia', value: 217, color: '#000000', icon: <LuDot size={24} color='#3884ff' /> },
-    { name: 'Website', value: 351, color: '#000000', icon: <LuDot size={24} color='#7161ef' /> },
+    { name: 'National Day', value: 310, color: '#000000', icon: <LuDot size={30} color='#3884ff' /> },
+    { name: 'Eid Celebrations', value: 217, color: '#000000', icon: <LuDot size={30} color='#3884ff' /> },
+    { name: 'New Year', value: 351, color: '#000000', icon: <LuDot size={30} color='#7161ef' /> },
 ];
-
 const datapie = [
     { name: "Mobile Banking", value: 2992 },
     { name: "Internet Banking", value: 8243 },
@@ -411,19 +410,26 @@ const TransactionCampaign: React.FC = () => {
                             ))}
                         </div>
 
-                       <ResponsiveContainer width="100%" height={210}>
-                                                  <BarChart data={data2} layout="horizontal">
-                                                      <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-                                                      <YAxis domain={[0, 500]} type="number" />
-                                                      <XAxis type="category" />
-                                                      <Tooltip />
-                                                      <Bar dataKey="value">
-                                                          {data2.map((entry, index) => (
-                                                              <Cell key={`bar-${index}`} fill={COLORS[index % COLORS.length]} />
-                                                          ))}
-                                                      </Bar>
-                                                  </BarChart>
-                                              </ResponsiveContainer>
+                       <ResponsiveContainer width="100%" height={225}>
+                           <BarChart data={data2} layout="horizontal">
+                               <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+                               <YAxis domain={[0, 500]} type="number" />
+                               <XAxis 
+                                   type="category" 
+                                   dataKey="name" 
+                                   angle={-45} 
+                                   textAnchor="end"
+                                   fontSize={12}
+                                   height={70} // Increase height for better spacing
+                               />
+                               <Tooltip />
+                               <Bar dataKey="value">
+                                   {data2.map((entry, index) => (
+                                       <Cell key={`bar-${index}`} fill={COLORS[index % COLORS.length]} />
+                                   ))}
+                               </Bar>
+                           </BarChart>
+                       </ResponsiveContainer>
                     </Card>
 
                 </div>

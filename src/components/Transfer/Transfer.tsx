@@ -23,7 +23,6 @@ interface DataSource {
     Time: string;
     Amount: string;
     Name: string;
-    ImageSrc: string;
 }
 
 const MultiViewTable: React.FC = ({ }) => {
@@ -48,21 +47,22 @@ const MultiViewTable: React.FC = ({ }) => {
     };
 
     const dataSource: DataSource[] = [
-        { key: '1', TransferID: 'EXG4545FR01', Type: 'Online', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '2', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '3', TransferID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '4', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '5', TransferID: 'EXG4545FR01', Type: 'Branch', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '6', TransferID: 'EXG4545FR02', Type: 'Online', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '7', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '8', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '9', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '10', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '11', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '12', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '13', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '14', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
+        { key: '1', TransferID: 'EXG4545FR01', Type: 'Online', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Ali Al-Balushi" },
+        { key: '2', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Said Al-Lawati" },
+        { key: '3', TransferID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Fatima Al-Muqbali" },
+        { key: '4', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Khalid Al-Farsi" },
+        { key: '5', TransferID: 'EXG4545FR01', Type: 'Branch', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Mariam Al-Kindi" },
+        { key: '6', TransferID: 'EXG4545FR02', Type: 'Online', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Hassan Al-Harthy" },
+        { key: '7', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Nadia Al-Rashdi" },
+        { key: '8', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Ahmed Al-Saadi" },
+        { key: '9', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Amina Al-Hinai" },
+        { key: '10', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Mohammed Al-Shukaili" },
+        { key: '11', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Layla Al-Nabhani" },
+        { key: '12', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Salim Al-Manji" },
+        { key: '13', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Samira Al-Jabri" },
+        { key: '14', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Zaid Al-Habsi" },
     ];
+    
     
 
     const Addhandle = () => {
@@ -142,16 +142,7 @@ const MultiViewTable: React.FC = ({ }) => {
             key: 'Name',
             width: 100,
             sorter: (a: DataSource, b: DataSource) => a.Name.localeCompare(b.Name),
-            render: (text: string, record: DataSource) => (
-                <Space>
-                    <img
-                        src={record.ImageSrc}
-                        alt={''}
-                        style={{ width: 30, height: 30, borderRadius: '50%' }}
-                    />
-                    <span>{text}</span>
-                </Space>
-            ),
+            
         },
         {
             title: 'Status',
@@ -321,20 +312,20 @@ const MultiViewTable: React.FC = ({ }) => {
 
     const handleExport = () => {
         const data = [
-            { key: '1', TransferID: 'EXG4545FR01', Type: 'Online', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '2', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '3', TransferID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '4', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '5', TransferID: 'EXG4545FR01', Type: 'Branch', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '6', TransferID: 'EXG4545FR02', Type: 'Online', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '7', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '8', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '9', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '10', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '11', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '12', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '13', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
-        { key: '14', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam", ImageSrc: Image },
+        { key: '01', TransferID: 'EXG4545FR01', Type: 'Online', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Khai",  },
+        { key: '02', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam",  },
+        { key: '03', TransferID: 'EXG4545FR01', Type: 'Debit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam",  },
+        { key: '04', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam",  },
+        { key: '05', TransferID: 'EXG4545FR01', Type: 'Branch', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam",  },
+        { key: '06', TransferID: 'EXG4545FR02', Type: 'Online', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam",  },
+        { key: '07', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam",  },
+        { key: '08', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Pending", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam",  },
+        { key: '09', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam",  },
+        { key: ' 10', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam",  },
+        { key: ' 11', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam",  },
+        { key: ' 12', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam",  },
+        { key: ' 13', TransferID: 'EXG4545FR01', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam",  },
+        { key: ' 14', TransferID: 'EXG4545FR02', Type: 'Credit Card', From: "***12345", To: "***67890", Status: "Complete", Date: "12/12/2024", Time: "12:30", Amount: "2020", Name: "Walliam",  },
         ];
 
         const worksheet = XLSX.utils.json_to_sheet(data);
