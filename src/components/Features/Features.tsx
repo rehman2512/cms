@@ -9,7 +9,7 @@ import Form from '../../Forms/PersonalInfoForm'
 type TransferItem = GetProp<TransferProps, 'dataSource'>[number];
 type TableRowSelection<T extends object> = TableProps<T>['rowSelection'];
 
-interface DataType {
+export interface DataType {
     key: string;
     title: string;
     tag: string;
@@ -174,6 +174,7 @@ const App: React.FC<PersonalProps> = ({ Back }) => {
     const [showForm, setShowForm] = useState<boolean>(false);
 
 
+
     const onChange: TableTransferProps['onChange'] = (nextTargetKeys) => {
         setTargetKeys(nextTargetKeys);
     };
@@ -193,11 +194,13 @@ const App: React.FC<PersonalProps> = ({ Back }) => {
     const toggleDisabled = (checked: boolean) => {
         setDisabled(checked);
     };
+    const selectedFeatures = mockData.filter((item) => targetKeys?.includes(item.key));
+
 
     return (
         <>
             {showForm ? (
-                <Form Back={Backhandle} />
+                <Form Back={Backhandle} selectedFeatures={selectedFeatures} />
             ) : (
                 <div className={style.containerFluid}>
                     <FaArrowLeft size={24} onClick={Back} className={style.backArrow} />

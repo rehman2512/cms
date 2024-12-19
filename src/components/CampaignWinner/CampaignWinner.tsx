@@ -74,17 +74,11 @@ const LuckyDrawScreen: React.FC = () => {
       const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
       const [currentRowKey, setCurrentRowKey] = useState<string | null>(null);
       const [dataSource, setDataSource] = useState<DataSource[]>([
-          { key: '1', CampaignName: 'National Day',CampaignType:"Transaction Campaign", StartTime: '18/11/2024', EndTime: "23/11/2024",  Status: "Completed", MinSpend: "50", MaxSpend: "500", Frequency: "Recurring", },
-          { key: '2', CampaignName: 'New Year',CampaignType:"Channel Campaign", StartTime: '1/9/2024', EndTime: "20/9/2024",  Status: "Completed", MinSpend: "75", MaxSpend: "500", Frequency: "Recurring", },
-          { key: '3', CampaignName: 'Eid Celebration',CampaignType:"Product Campaign",  StartTime: '18/7/2024', EndTime: "20/7/2024",  Status: "Completed", MinSpend: "100", MaxSpend: "500", Frequency: "Once", },
-          { key: '4', CampaignName: 'Mid Year', CampaignType:"Product Campaign", StartTime: '01/6/2024', EndTime: "30/6/2024",  Status: "Completed", MinSpend: "500", MaxSpend: "1000", Frequency: "Once", },
-          { key: '6', CampaignName: 'Eid Celebration',CampaignType:"Channel Campaign",  StartTime: '10/4/2024', EndTime: "13/4/2024",  Status: "Completed", MinSpend: "50", MaxSpend: "500", Frequency: "Recurring", },
-          { key: '5', CampaignName: 'Ramzan Kareem', CampaignType:"Transaction Campaign", StartTime: '10/3/2024', EndTime: "10/4/2024",  Status: "Completed", MinSpend: "30", MaxSpend: "400", Frequency: "Once", },
-          { key: '7', CampaignName: 'New Year', CampaignType:"Product Campaign", StartTime: '01/1/2024', EndTime: "30/1/2024",  Status: "Completed", MinSpend: "150", MaxSpend: "350", Frequency: "Once", },
-          { key: '8', CampaignName: 'New Year',CampaignType:"Transaction Campaign",  StartTime: '01/1/2024', EndTime: "30/1/2024",  Status: "Completed", MinSpend: "200", MaxSpend: "450", Frequency: "Recurring", },
-          { key: '9', CampaignName: 'Spend & Win', CampaignType:"Transaction Campaign", StartTime: '01/9/2023', EndTime: "30/9/2023",  Status: "Completed", MinSpend: "15", MaxSpend: "250", Frequency: "Recurring", },
-          { key: '10', CampaignName: 'Eid ul Adha',CampaignType:"Channel Campaign",  StartTime: '15/8/2023', EndTime: "21/8/2023",  Status: "Completed", MinSpend: "200", MaxSpend: "1500", Frequency: "Once", },
-          { key: '11', CampaignName: 'Spend & Win', CampaignType:"Channel Campaign", StartTime: '01/2/2023', EndTime: "01/3/2023",  Status: "Completed", MinSpend: "300", MaxSpend: "3000", Frequency: "Once", },
+          { key: '1', CampaignName: 'National Day',CampaignType:"Transaction Campaign", StartTime: '18/11/2024', EndTime: "23/11/2024",  Status: "Active", MinSpend: "50", MaxSpend: "500", Frequency: "Recurring", },
+          { key: '2', CampaignName: 'New Year',CampaignType:"Channel Campaign", StartTime: '1/9/2024', EndTime: "20/9/2024",  Status: "Active", MinSpend: "75", MaxSpend: "500", Frequency: "Recurring", },
+          { key: '4', CampaignName: 'Mid Year', CampaignType:"Product Campaign", StartTime: '01/6/2024', EndTime: "30/6/2024",  Status: "Active", MinSpend: "500", MaxSpend: "1000", Frequency: "Once", },
+          { key: '6', CampaignName: 'Eid Celebration',CampaignType:"Transaction Campaign", StartTime: '10/4/2024', EndTime: "13/4/2024",  Status: "Complete", MinSpend: "50", MaxSpend: "500", Frequency: "Recurring", },
+          { key: '5', CampaignName: 'Ramzan Kareem',CampaignType:"Product Campaign" ,StartTime: '10/3/2024', EndTime: "10/4/2024",  Status: "Complete", MinSpend: "30", MaxSpend: "400", Frequency: "Once", },
   
       ])
   
@@ -100,8 +94,6 @@ const LuckyDrawScreen: React.FC = () => {
   const lastMonthWinners = [
     { name: "Sheikh Fahad", image: Sheikh },
     { name: "Sheikh Khalil", image: Sheikh1 },
-    { name: "Sheikh Fahad", image: Sheikh2 },
-    { name: "Sheikh Fahad", image: Sheikh3 },
     { name: "Al Raheem", image: Sheikh },
     { name: "Basheer", image: Sheikh1 },
   ];
@@ -188,7 +180,7 @@ const LuckyDrawScreen: React.FC = () => {
       width: 100,
       sorter: (a: DataSource, b: DataSource) => a.Status.localeCompare(b.Status),
       render: (Status: string) => {
-        const Color = Status === 'Pending' ? 'yellow' : Status === 'Completed' ? 'green' : 'red';
+        const Color = Status === 'Complete' ? 'green' : Status === 'Active' ? 'Blue' : 'red';
         return (
           <Tag style={{ marginInlineEnd: 0 }} color={Color}>
             {Status.toUpperCase()}
@@ -415,7 +407,7 @@ const LuckyDrawScreen: React.FC = () => {
               </div>
             </div>
             <div className={`col-lg-4 ${styles.Amount}`}>
-              <h6>Winner</h6>
+              <h6>1st Winner</h6>
               <h1>OMR 5000</h1>
               <h2>Current Month</h2>
             </div>
@@ -425,7 +417,7 @@ const LuckyDrawScreen: React.FC = () => {
               <div className={styles.imagewinner}>
                 <img src={Sheikh} width={60} alt="Winner" />
                 <span className="mx-3">
-                  <h4>SHEIKH FAHAD</h4>
+                  <h4>MUHAMMED BIN SALMAN</h4>
                   <h6>{campaignDetails[activeCampaign].location}</h6>
                 </span>
               </div>
@@ -443,7 +435,7 @@ const LuckyDrawScreen: React.FC = () => {
               <div className={styles.imagewinner}>
                 <img src={Sheikh1} width={60} alt="Winner" />
                 <span className="mx-3">
-                  <h4>SHEIKH FAHAD</h4>
+                  <h4>SHEIKH MUHAMMED ELHAJ</h4>
                   <h6>{campaignDetails[activeCampaign].location}</h6>
                 </span>
               </div>
@@ -458,7 +450,7 @@ const LuckyDrawScreen: React.FC = () => {
           </div>
 
 
-          {/* <div className={`row ${styles.LastwinnerContainer}`}>
+          <div className={`row ${styles.LastwinnerContainer}`}>
             <h6>Last Month Winner's</h6>
             <div className={`col-lg-12 ${styles.colLastMnth}`}>
               {lastMonthWinners.map((winner, index) => (
@@ -471,7 +463,7 @@ const LuckyDrawScreen: React.FC = () => {
                 </div>
               ))}
             </div>
-          </div> */}
+          </div>
         </div>
       ) : (
         <>
